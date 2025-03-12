@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://cb0nttk6ts6lq"]
+
+[ext_resource type="Script" path="res://scripts/enemy/fly_enemy.gd" id="1_s3r2x"]
+[ext_resource type="Texture2D" uid="uid://bmepilpk38uf7" path="res://assests/enemy/CrimsonFlyingEye/Flight.png" id="2_8t14f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hk022"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csctb"]
+atlas = ExtResource("2_8t14f")
+region = Rect2(50, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38h8m"]
+atlas = ExtResource("2_8t14f")
+region = Rect2(200, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfdfp"]
+atlas = ExtResource("2_8t14f")
+region = Rect2(350, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cma3"]
+atlas = ExtResource("2_8t14f")
+region = Rect2(500, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txuib"]
+atlas = ExtResource("2_8t14f")
+region = Rect2(650, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd5ro"]
+atlas = ExtResource("2_8t14f")
+region = Rect2(800, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06cbd"]
+atlas = ExtResource("2_8t14f")
+region = Rect2(950, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rh87"]
+atlas = ExtResource("2_8t14f")
+region = Rect2(1100, 50, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6l16j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csctb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38h8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfdfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cma3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txuib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd5ro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06cbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rh87")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="FlyEnemy" type="Node2D"]
+script = ExtResource("1_s3r2x")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_hk022")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_6l16j")
+animation = &"fly"
