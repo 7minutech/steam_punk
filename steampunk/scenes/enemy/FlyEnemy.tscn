@@ -72,17 +72,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogfpw"]
 radius = 100.0
 
-[node name="FlyEnemy" type="Node2D"]
-position = Vector2(353, 192)
+[node name="FlyingEnemy" type="CharacterBody2D"]
+position = Vector2(517, 257)
 script = ExtResource("1_s3r2x")
 metadata/_edit_group_ = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hk022")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6l16j")
 animation = &"fly"
 
@@ -91,6 +89,5 @@ animation = &"fly"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ogfpw")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
