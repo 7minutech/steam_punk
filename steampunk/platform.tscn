@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3jflvx0qfu34"]
+[gd_scene load_steps=3 format=3 uid="uid://dkpqp68j5clhi"]
 
 [ext_resource type="Texture2D" uid="uid://by5mfbj1gtfxm" path="res://platforms.png" id="1_wb82j"]
 
@@ -17,3 +17,4 @@ region_rect = Rect2(16, 0, 32.2179, 10)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_yxy2t")
+one_way_collision = true
