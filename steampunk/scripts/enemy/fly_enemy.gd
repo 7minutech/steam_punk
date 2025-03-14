@@ -1,6 +1,10 @@
-extends Node2D
+extends CharacterBody2D
 
 var chasing_player = false
+var speed = 150
+var player = Global.player
+var gear_bullet = preload("res://scenes/enemy/GearBullet.tscn")
+var atk_cd = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.play("fly")
@@ -9,20 +13,41 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if chasing_player:
-		print("chasing player")
-		
 	pass
 
-
-
+func _physics_process(delta: float) -> void:
+	if chasing_player:
+		hover_over_player()
+	
+	
+	$Marker2D.position = position
 
 func flying_enemy():
 	pass
 
+func hover_over_player():
+	if abs(player.position.x - position.x) < 5:
+		return
+	if player.position.x < position.x:
+		var direction = Vector2.LEFT
+		velocity = direction * speed
+	else:
+		var direction = Vector2.RIGHT
+		velocity = direction * speed
+	move_and_slide()
+
+func player_in_atk_range():
+	if abs(Global.player.position.x - position.x) < 5 and not atk_cd:
+		return true
+	return false
+
+
+		
+	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
+		player = body
 		chasing_player = true
 		print("chasing player now")
 	pass # Replace with function body.
@@ -32,4 +57,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		chasing_player = false
 		print("not chasing player now")
+	pass # Replace with function body.
+
+
+func _on_atkcd_timeout() -> void:
+	atk_cd = false
 	pass # Replace with function body.

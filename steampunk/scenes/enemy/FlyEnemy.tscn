@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cb0nttk6ts6lq"]
 
-[ext_resource type="Script" uid="uid://5eksbjriuu71" path="res://scripts/enemy/fly_enemy.gd" id="1_s3r2x"]
+[ext_resource type="Script" path="res://scripts/enemy/fly_enemy.gd" id="1_s3r2x"]
 [ext_resource type="Texture2D" uid="uid://bmepilpk38uf7" path="res://assests/enemy/CrimsonFlyingEye/Flight.png" id="2_8t14f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hk022"]
@@ -88,6 +88,8 @@ animation = &"fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ogfpw")
+
+[node name="Marker2D" type="Marker2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
