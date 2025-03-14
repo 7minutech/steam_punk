@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://br8jmsprtbwvt"]
+
+[ext_resource type="Script" path="res://scenes/enemy/fly_enemy_main.gd" id="1_mu4xm"]
+[ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="2_3cfa8"]
+
+[node name="FlyEnemyMain" type="Node2D"]
+script = ExtResource("1_mu4xm")
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("2_3cfa8")]
+
+[node name="ATKCD" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="ATKCD" to="." method="_on_atkcd_timeout"]
