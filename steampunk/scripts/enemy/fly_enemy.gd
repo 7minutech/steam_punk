@@ -18,12 +18,19 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if chasing_player:
 		hover_over_player()
+	flip()
 	
 	
 	$Marker2D.position = position
 
 func flying_enemy():
 	pass
+
+func flip():
+	if Global.player.position.x < position.x:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
 
 func hover_over_player():
 	if abs(player.position.x - position.x) < 5:
