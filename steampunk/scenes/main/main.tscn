@@ -1,14 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgvfqdxxmw7h6"]
+[gd_scene load_steps=2 format=3 uid="uid://cgvfqdxxmw7h6"]
 
 [ext_resource type="Script" path="res://scripts/main/main.gd" id="1_hhwj5"]
-[ext_resource type="PackedScene" uid="uid://blq46q4phf4pv" path="res://scenes/player/DummyPlayer.tscn" id="3_f3jnm"]
-[ext_resource type="PackedScene" uid="uid://nuarvlmosff4" path="res://scenes/enemy/FlyEnemyMain.tscn" id="4_17376"]
 
 [node name="DummyMain" type="Node2D"]
 script = ExtResource("1_hhwj5")
-
-[node name="Player" parent="." instance=ExtResource("3_f3jnm")]
-position = Vector2(680, 197)
-
-[node name="FlyEnemyMain" parent="." instance=ExtResource("4_17376")]
-position = Vector2(43, -146)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmsqvsn5yc8wd"]
+
+[ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="1_i4dxq"]
+[ext_resource type="PackedScene" uid="uid://2wprln6k11wx" path="res://scenes/player/RobotPlayer.tscn" id="2_2puju"]
+[ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_5de5q"]
+
+[node name="TestMainRobot" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_i4dxq")]
+position = Vector2(213, 238)
+scale = Vector2(5, 5)
+
+[node name="RobotPlayer" parent="." instance=ExtResource("2_2puju")]
+position = Vector2(307, 164)
+
+[node name="Platform2" parent="." instance=ExtResource("1_i4dxq")]
+position = Vector2(439, 237)
+scale = Vector2(5, 5)
+
+[node name="dissapearing_platforms" parent="." instance=ExtResource("3_5de5q")]
+position = Vector2(600, 215)
+script = null
