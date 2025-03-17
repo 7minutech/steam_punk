@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://e3vdltb4rk4r"]
+
+[ext_resource type="Texture2D" uid="uid://bevgo4gvfbp7e" path="res://assests/enemy/Spider Sprite Sheet.png" id="1_kijm2"]
+[ext_resource type="Script" path="res://scenes/enemy/crawler_enemy.gd" id="1_kqomw"]
+
+[sub_resource type="Curve2D" id="Curve2D_ir5jc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -45, 0, 0, 0, 0, 0, 208, 0, 0, 0, 0, 0, -46, -1)
+}
+point_count = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0dxm"]
+atlas = ExtResource("1_kijm2")
+region = Rect2(0, 44, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jopo4"]
+atlas = ExtResource("1_kijm2")
+region = Rect2(32, 44, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1xb2"]
+atlas = ExtResource("1_kijm2")
+region = Rect2(64, 44, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mrxp"]
+atlas = ExtResource("1_kijm2")
+region = Rect2(96, 44, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqkos"]
+atlas = ExtResource("1_kijm2")
+region = Rect2(128, 44, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tupt"]
+atlas = ExtResource("1_kijm2")
+region = Rect2(160, 44, 32, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvqfp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0dxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jopo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1xb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mrxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqkos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tupt")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mr22"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ldtwc"]
+radius = 25.7133
+
+[node name="CrawlerEnemy" type="Node2D"]
+position = Vector2(602, 263)
+script = ExtResource("1_kqomw")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-108.094, 0)
+scale = Vector2(1.51969, 1)
+curve = SubResource("Curve2D_ir5jc")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(171.922, -0.142039)
+progress = 289.092
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/CharacterBody2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_vvqfp")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/CharacterBody2D"]
+position = Vector2(-0.771813, 8.14203)
+shape = SubResource("CircleShape2D_3mr22")
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D/CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/CharacterBody2D/Area2D"]
+position = Vector2(-0.771813, 8.14203)
+shape = SubResource("CircleShape2D_ldtwc")
+
+[connection signal="body_entered" from="Path2D/PathFollow2D/CharacterBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Path2D/PathFollow2D/CharacterBody2D/Area2D" to="." method="_on_area_2d_body_exited"]

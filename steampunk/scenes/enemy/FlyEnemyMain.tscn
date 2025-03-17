@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://br8jmsprtbwvt"]
+[gd_scene load_steps=3 format=3 uid="uid://nuarvlmosff4"]
 
 [ext_resource type="Script" path="res://scenes/enemy/fly_enemy_main.gd" id="1_mu4xm"]
 [ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="2_3cfa8"]
