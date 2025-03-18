@@ -73,7 +73,7 @@ radius = 14.0357
 [sub_resource type="CircleShape2D" id="CircleShape2D_wi4qs"]
 radius = 72.1734
 
-[node name="RobotPlayer" type="CharacterBody2D"]
+[node name="RobotPlayer" type="CharacterBody2D" groups=["hero"]]
 position = Vector2(561, 283)
 script = ExtResource("1_50lyx")
 

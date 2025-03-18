@@ -11,12 +11,14 @@ position = Vector2(213, 238)
 scale = Vector2(5, 5)
 
 [node name="RobotPlayer" parent="." instance=ExtResource("2_2puju")]
-position = Vector2(307, 164)
+position = Vector2(307, 166)
 
 [node name="Platform2" parent="." instance=ExtResource("1_i4dxq")]
 position = Vector2(439, 237)
 scale = Vector2(5, 5)
 
+[node name="dissapearing_platforms2" parent="." instance=ExtResource("3_5de5q")]
+position = Vector2(430, 189)
+
 [node name="dissapearing_platforms" parent="." instance=ExtResource("3_5de5q")]
-position = Vector2(600, 215)
-script = null
+position = Vector2(608, 212)
