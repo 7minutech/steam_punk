@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://v0q21arooc80"]
+[gd_scene load_steps=4 format=3 uid="uid://d7trdbjdw8hw"]
 
 [ext_resource type="Texture2D" uid="uid://dgtjp0n0j57t" path="res://chest.png" id="1_doea4"]
 [ext_resource type="Script" path="res://crate.gd" id="1_twwtu"]

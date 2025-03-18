@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci76afryl2qxt"]
+[gd_scene load_steps=6 format=3 uid="uid://48xoeilhjdd5"]
 
 [ext_resource type="Script" path="res://temporary_main.gd" id="1_8wehe"]
-[ext_resource type="PackedScene" uid="uid://q6275r1w7fb3" path="res://temporary_player.tscn" id="2_5bwxc"]
-[ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://platform.tscn" id="3_bveet"]
+[ext_resource type="PackedScene" uid="uid://b000k2yh4xnc5" path="res://temporary_player.tscn" id="2_5bwxc"]
+[ext_resource type="PackedScene" path="res://platform.tscn" id="3_bveet"]
+[ext_resource type="PackedScene" uid="uid://d7trdbjdw8hw" path="res://crate.tscn" id="4_i62i5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bwjr"]
 
@@ -19,10 +20,13 @@ shape = SubResource("WorldBoundaryShape2D_1bwjr")
 position = Vector2(219, 218)
 
 [node name="Platform" parent="." instance=ExtResource("3_bveet")]
-position = Vector2(408, 230)
+position = Vector2(500, 243)
 
 [node name="Platform2" parent="." instance=ExtResource("3_bveet")]
-position = Vector2(528, 233)
+position = Vector2(969, 219)
 
 [node name="Platform3" parent="." instance=ExtResource("3_bveet")]
-position = Vector2(332, 294)
+position = Vector2(1041, 217)
+
+[node name="Crate" parent="." instance=ExtResource("4_i62i5")]
+position = Vector2(504, 191)
