@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci76afryl2qxt"]
+
+[ext_resource type="Script" path="res://temporary_main.gd" id="1_8wehe"]
+[ext_resource type="PackedScene" uid="uid://q6275r1w7fb3" path="res://temporary_player.tscn" id="2_5bwxc"]
+[ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://platform.tscn" id="3_bveet"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bwjr"]
+
+[node name="TemporaryMain" type="Node2D"]
+script = ExtResource("1_8wehe")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(218, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_1bwjr")
+
+[node name="TemporaryPlayer" parent="." instance=ExtResource("2_5bwxc")]
+position = Vector2(219, 218)
+
+[node name="Platform" parent="." instance=ExtResource("3_bveet")]
+position = Vector2(408, 230)
+
+[node name="Platform2" parent="." instance=ExtResource("3_bveet")]
+position = Vector2(528, 233)
+
+[node name="Platform3" parent="." instance=ExtResource("3_bveet")]
+position = Vector2(332, 294)
