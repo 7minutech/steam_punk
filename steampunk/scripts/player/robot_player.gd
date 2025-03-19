@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED: float = 200.0
+@export var speed: float = 200.0
 const JUMP_VELOCITY: float = -400.0 
 @export var gravity: bool = true
 func _ready() 	-> void:
@@ -28,9 +28,9 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = false
 		$Gun.flip_h = false
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
 	
