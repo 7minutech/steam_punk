@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://2wprln6k11wx"]
+[gd_scene load_steps=16 format=3 uid="uid://2wprln6k11wx"]
 
 [ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_50lyx"]
 [ext_resource type="Texture2D" uid="uid://cq7rs07tv5wxf" path="res://assests/enemy/Robots.png" id="1_agcbn"]
-[ext_resource type="Texture2D" uid="uid://buwqyystfovsw" path="res://assests/player/sGun.png" id="3_jnqa7"]
-[ext_resource type="Script" path="res://scripts/player/gun.gd" id="4_udsvr"]
+[ext_resource type="PackedScene" uid="uid://b61fqprehb51a" path="res://scenes/player/weapons/Gun.tscn" id="5_1235o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4rv4"]
 atlas = ExtResource("1_agcbn")
@@ -124,16 +123,6 @@ shape = SubResource("CircleShape2D_lku4a")
 position = Vector2(0, 19)
 shape = SubResource("CircleShape2D_wi4qs")
 
-[node name="Gun" type="Sprite2D" parent="."]
-position = Vector2(1, 19)
-scale = Vector2(0.642857, 0.5)
-texture = ExtResource("3_jnqa7")
-script = ExtResource("4_udsvr")
-bullet_cd = 0.3
-
-[node name="Muzzle" type="Marker2D" parent="Gun"]
-position = Vector2(14, 0)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
@@ -142,3 +131,5 @@ limit_smoothed = true
 
 [node name="ScreenShaker" type="Node" parent="Camera2D"]
 script = SubResource("GDScript_okl78")
+
+[node name="Gun" parent="." instance=ExtResource("5_1235o")]
