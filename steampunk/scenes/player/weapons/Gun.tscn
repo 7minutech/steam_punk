@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/player/gun.gd" id="2_5y45s"]
 
 [node name="Gun" type="Sprite2D"]
+scale = Vector2(0.607143, 0.5)
 texture = ExtResource("1_x52j7")
 script = ExtResource("2_5y45s")
 

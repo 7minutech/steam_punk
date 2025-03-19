@@ -133,3 +133,4 @@ limit_smoothed = true
 script = SubResource("GDScript_okl78")
 
 [node name="Gun" parent="." instance=ExtResource("5_1235o")]
+position = Vector2(1, 19)
