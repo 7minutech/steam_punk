@@ -24,8 +24,8 @@ func _physics_process(delta: float) -> void:
 	flip()
 	if player_in_atk_range():
 		var gear_instace = gear_bullet.instantiate()
-		gear_instace.position = $Drop.position
 		get_parent().add_child(gear_instace)
+		gear_instace.position = $Drop.position
 		
 	
 	
@@ -50,8 +50,10 @@ func hover_over_player():
 		velocity = direction * speed
 	move_and_slide()
 
-func player_in_atk_range(): 
+func player_in_atk_range():
 	if abs(Global.player.position.x - position.x) < 5 and not atk_cd:
+		atk_cd = true
+		$Atk_cd.start()
 		return true
 	return false
 
@@ -78,6 +80,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_atkcd_timeout() -> void:
+func _on_atk_cd_timeout() -> void:
 	atk_cd = false
 	pass # Replace with function body.
