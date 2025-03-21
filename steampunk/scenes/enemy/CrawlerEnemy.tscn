@@ -74,7 +74,7 @@ scale = Vector2(1.51969, 1)
 curve = SubResource("Curve2D_ir5jc")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(171.922, -0.142039)
+position = Vector2(171.923, -0.142037)
 progress = 289.092
 rotates = false
 

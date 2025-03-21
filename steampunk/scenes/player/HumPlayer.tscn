@@ -1,38 +1,39 @@
-[gd_scene load_steps=14 format=3 uid="uid://no4kpnw28ojp"]
+[gd_scene load_steps=16 format=3 uid="uid://m8mum727x572"]
 
-[ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_r2plw"]
-[ext_resource type="Texture2D" uid="uid://cq7rs07tv5wxf" path="res://assests/enemy/Robots.png" id="2_p5m3p"]
+[ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_fxw60"]
+[ext_resource type="Texture2D" uid="uid://cq7rs07tv5wxf" path="res://assests/enemy/Robots.png" id="2_vkn6e"]
+[ext_resource type="PackedScene" uid="uid://b61fqprehb51a" path="res://scenes/player/weapons/Gun.tscn" id="3_28upd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4rv4"]
-atlas = ExtResource("2_p5m3p")
+atlas = ExtResource("2_vkn6e")
 region = Rect2(0, 0, 24, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a6vg4"]
-atlas = ExtResource("2_p5m3p")
+atlas = ExtResource("2_vkn6e")
 region = Rect2(24, 0, 24, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_np284"]
-atlas = ExtResource("2_p5m3p")
+atlas = ExtResource("2_vkn6e")
 region = Rect2(48, 0, 24, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sb7f6"]
-atlas = ExtResource("2_p5m3p")
+atlas = ExtResource("2_vkn6e")
 region = Rect2(72, 0, 24, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugtsr"]
-atlas = ExtResource("2_p5m3p")
+atlas = ExtResource("2_vkn6e")
 region = Rect2(96, 0, 24, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_td18d"]
-atlas = ExtResource("2_p5m3p")
+atlas = ExtResource("2_vkn6e")
 region = Rect2(120, 0, 24, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7fcu4"]
-atlas = ExtResource("2_p5m3p")
+atlas = ExtResource("2_vkn6e")
 region = Rect2(144, 0, 24, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct6bc"]
-atlas = ExtResource("2_p5m3p")
+atlas = ExtResource("2_vkn6e")
 region = Rect2(168, 0, 24, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7b38p"]
@@ -73,9 +74,37 @@ radius = 14.0357
 [sub_resource type="CircleShape2D" id="CircleShape2D_wi4qs"]
 radius = 72.1734
 
+[sub_resource type="GDScript" id="GDScript_okl78"]
+resource_name = "screen_shaker"
+script/source = "extends Node
+var camera
+var time = 0
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	camera = get_parent()
+	pass # Replace with function body.
+
+func shake(duration: float, magnitude: int): 
+	while time < duration:
+		time += get_process_delta_time()
+		time = min(time,duration)
+		var offset = Vector2()
+		offset.x = randi_range(-magnitude, magnitude)
+		offset.y = randi_range(-magnitude, magnitude)
+		camera.set_offset(offset)
+		await get_tree().process_frame
+	time = 0
+	camera.set_offset(Vector2.ZERO)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="HumanPlayer" type="CharacterBody2D" groups=["hero"]]
-position = Vector2(561, 283)
-script = ExtResource("1_r2plw")
+position = Vector2(568, 281)
+script = ExtResource("1_fxw60")
+gravity = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -91,6 +120,17 @@ shape = SubResource("CircleShape2D_lku4a")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2(0, 19)
 shape = SubResource("CircleShape2D_wi4qs")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_bottom = 600
+limit_smoothed = true
+
+[node name="ScreenShaker" type="Node" parent="Camera2D"]
+script = SubResource("GDScript_okl78")
+
+[node name="Gun" parent="." instance=ExtResource("3_28upd")]
+position = Vector2(1, 19)
