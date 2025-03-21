@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	flip()
 	if player_in_atk_range():
 		var gear_instace = gear_bullet.instantiate()
-		get_parent().add_child(gear_instace)
+		self.add_child(gear_instace)
 		gear_instace.position = $Drop.position
 		
 	

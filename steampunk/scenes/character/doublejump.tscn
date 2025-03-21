@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bitvi1nfaavbq"]
+[gd_scene load_steps=4 format=3 uid="uid://brb3jpkdvudeg"]
 
 [ext_resource type="Script" path="res://scripts/player/doublejump.gd" id="1_u6yuj"]
 [ext_resource type="Texture2D" uid="uid://02cwts0yxtg5" path="res://icon.svg" id="1_w4mqt"]
