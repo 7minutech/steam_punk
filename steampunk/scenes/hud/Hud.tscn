@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b6cg3qyki2c8a"]
+
+[node name="Hud" type="Node2D"]
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxContainer"]
