@@ -3,10 +3,13 @@ extends CharacterBody2D
 var chasing_player = false
 var speed = 150
 var player = Global.player
+var parent
 var gear_bullet = preload("res://scenes/enemy/GearBullet.tscn")
 var atk_cd = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player = Global.player
+	parent = get_parent()
 	$AnimatedSprite2D.play("fly")
 	pass # Replace with function body.
 
@@ -19,9 +22,13 @@ func _physics_process(delta: float) -> void:
 	if chasing_player:
 		hover_over_player()
 	flip()
+	if player_in_atk_range():
+		var gear_instace = gear_bullet.instantiate()
+		gear_instace.position = $Drop.position
+		get_parent().add_child(gear_instace)
+		
 	
 	
-	$Marker2D.position = position
 
 func flying_enemy():
 	pass
@@ -43,7 +50,7 @@ func hover_over_player():
 		velocity = direction * speed
 	move_and_slide()
 
-func player_in_atk_range():
+func player_in_atk_range(): 
 	if abs(Global.player.position.x - position.x) < 5 and not atk_cd:
 		return true
 	return false
@@ -53,6 +60,10 @@ func player_in_atk_range():
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	var distance = player.position.x - position.x
+	print("Player x: " + str(player.position.x))
+	print("Enmey x: " + str(position.x))
+	print("Distanct to player: " + str(distance))
 	if body.has_method("player"):
 		player = body
 		chasing_player = true

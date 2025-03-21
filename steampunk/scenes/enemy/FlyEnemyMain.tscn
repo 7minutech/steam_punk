@@ -7,6 +7,7 @@
 script = ExtResource("1_mu4xm")
 
 [node name="FlyingEnemy" parent="." instance=ExtResource("2_3cfa8")]
+position = Vector2(0, 0)
 
 [node name="ATKCD" type="Timer" parent="."]
 wait_time = 3.0

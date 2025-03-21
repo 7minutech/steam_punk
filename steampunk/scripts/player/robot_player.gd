@@ -5,6 +5,7 @@ extends CharacterBody2D
 const JUMP_VELOCITY: float = -400.0 
 @export var gravity: bool = true
 func _ready() 	-> void:
+	Global.player = self
 	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
