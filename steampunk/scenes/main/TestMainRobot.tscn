@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmsqvsn5yc8wd"]
+[gd_scene load_steps=5 format=3 uid="uid://cmsqvsn5yc8wd"]
 
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="1_i4dxq"]
 [ext_resource type="PackedScene" uid="uid://2wprln6k11wx" path="res://scenes/player/RobotPlayer.tscn" id="2_2puju"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_5de5q"]
+[ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="4_sbso6"]
 
 [node name="TestMainRobot" type="Node2D"]
 
@@ -22,3 +23,7 @@ position = Vector2(608, 212)
 
 [node name="RobotPlayer" parent="." instance=ExtResource("2_2puju")]
 position = Vector2(197, 90)
+gravity = true
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("4_sbso6")]
+position = Vector2(277, 115)

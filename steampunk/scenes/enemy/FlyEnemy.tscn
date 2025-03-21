@@ -75,7 +75,6 @@ radius = 100.0
 [node name="FlyingEnemy" type="CharacterBody2D"]
 position = Vector2(517, 257)
 script = ExtResource("1_s3r2x")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hk022")
@@ -89,7 +88,12 @@ animation = &"fly"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ogfpw")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Drop" type="Marker2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="Atk_cd" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Atk_cd" to="." method="_on_atk_cd_timeout"]
