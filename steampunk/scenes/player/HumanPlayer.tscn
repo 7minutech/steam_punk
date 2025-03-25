@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://no4kpnw28ojp"]
+[gd_scene load_steps=14 format=3 uid="uid://xhbppjhcw6wo"]
 
 [ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_r2plw"]
 [ext_resource type="Texture2D" uid="uid://cq7rs07tv5wxf" path="res://assests/enemy/Robots.png" id="2_p5m3p"]
