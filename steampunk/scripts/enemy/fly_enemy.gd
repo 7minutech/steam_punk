@@ -6,7 +6,7 @@ var player = Global.player
 var parent
 var gear_bullet = preload("res://scenes/enemy/GearBullet.tscn")
 var atk_cd = false
-var sprite = $AnimatedSprite2D
+@onready var sprite = $AnimatedSprite2D
 @export var health = 100
 
 # Called when the node enters the scene tree for the first time.

@@ -109,6 +109,7 @@ func _process(delta: float) -> void:
 
 [node name="RobotPlayer" type="CharacterBody2D" groups=["hero"]]
 position = Vector2(568, 281)
+collision_layer = 2
 script = ExtResource("1_50lyx")
 gravity = false
 
@@ -144,3 +145,8 @@ script = SubResource("GDScript_okl78")
 
 [node name="Gun" parent="." instance=ExtResource("5_1235o")]
 position = Vector2(1, 19)
+
+[node name="InvincTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="InvincTimer" to="." method="_on_invinc_timer_timeout"]

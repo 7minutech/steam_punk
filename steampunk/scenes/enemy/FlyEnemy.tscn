@@ -79,8 +79,6 @@ radius = 61.0082
 [node name="FlyingEnemy" type="CharacterBody2D"]
 position = Vector2(517, 257)
 script = ExtResource("1_s3r2x")
-speed = null
-health = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)

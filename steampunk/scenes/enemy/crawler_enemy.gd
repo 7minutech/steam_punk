@@ -4,7 +4,10 @@ extends Node2D
 @onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/AnimatedSprite2D
 @export var speed: int = 1
 @export var health: int = 100
+@export var atk_cd_time: int
+var atk_cd: bool = false
 func _ready() -> void:
+	$AtkCD.wait_time = atk_cd_time
 	sprite.play("walk")
 	pass
 	
@@ -16,19 +19,12 @@ func _process(delta: float) -> void:
 	else:
 		sprite.flip_h = true
 	path_follow.progress += speed
+	if atk_cd:
+		$Path2D/PathFollow2D/CharacterBody2D/CollisionShape2D.disabled = true
 	pass
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
-		pass
-	pass # Replace with function body.
 
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
-		pass
-	pass # Replace with function body.
 
 func enemy():
 	pass
@@ -41,3 +37,20 @@ func hit():
 	print("hit")
 	health -= 25
 	hurt_flicker()
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.has_method("player") and not atk_cd:
+		print(atk_cd)
+		body.hit(20)
+		atk_cd = true
+		$AtkCD.start()
+		pass
+	pass # Replace with function body.
+	
+	
+
+
+func _on_atk_cd_timeout() -> void:
+	atk_cd = false
+	pass # Replace with function body.
