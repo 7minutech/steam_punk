@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://2wprln6k11wx"]
+[gd_scene load_steps=17 format=3 uid="uid://2wprln6k11wx"]
 
 [ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_50lyx"]
 [ext_resource type="Texture2D" uid="uid://cq7rs07tv5wxf" path="res://assests/enemy/Robots.png" id="1_agcbn"]
+[ext_resource type="Texture2D" uid="uid://k0suqcu130l2" path="res://assests/player/robot_floating_transparent.png" id="3_wsaap"]
 [ext_resource type="PackedScene" uid="uid://b61fqprehb51a" path="res://scenes/player/weapons/Gun.tscn" id="5_1235o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4rv4"]
@@ -66,6 +67,11 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_model",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lku4a"]
@@ -110,8 +116,12 @@ gravity = false
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7b38p")
 animation = &"idle"
-frame = 4
-frame_progress = 0.129592
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_wsaap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
