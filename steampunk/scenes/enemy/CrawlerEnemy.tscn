@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://e3vdltb4rk4r"]
+[gd_scene load_steps=14 format=3 uid="uid://e3vdltb4rk4r"]
 
 [ext_resource type="Texture2D" uid="uid://bevgo4gvfbp7e" path="res://assests/enemy/Spider Sprite Sheet.png" id="1_kijm2"]
 [ext_resource type="Script" path="res://scenes/enemy/crawler_enemy.gd" id="1_kqomw"]
+[ext_resource type="Script" path="res://scenes/enemy/hitbox.gd" id="3_qi174"]
 
 [sub_resource type="Curve2D" id="Curve2D_ir5jc"]
 _data = {
@@ -60,9 +61,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mr22"]
+radius = 13.1592
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ldtwc"]
-radius = 25.7133
+radius = 14.1392
 
 [node name="CrawlerEnemy" type="Node2D"]
 position = Vector2(602, 263)
@@ -89,11 +91,12 @@ animation = &"walk"
 position = Vector2(-0.771813, 8.14203)
 shape = SubResource("CircleShape2D_3mr22")
 
-[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D/CharacterBody2D"]
+[node name="Hitbox" type="Area2D" parent="Path2D/PathFollow2D/CharacterBody2D"]
+script = ExtResource("3_qi174")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/CharacterBody2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/CharacterBody2D/Hitbox"]
 position = Vector2(-0.771813, 8.14203)
 shape = SubResource("CircleShape2D_ldtwc")
 
-[connection signal="body_entered" from="Path2D/PathFollow2D/CharacterBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Path2D/PathFollow2D/CharacterBody2D/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Path2D/PathFollow2D/CharacterBody2D/Hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Path2D/PathFollow2D/CharacterBody2D/Hitbox" to="." method="_on_area_2d_body_exited"]

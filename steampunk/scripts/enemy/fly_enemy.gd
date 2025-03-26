@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 var chasing_player = false
-var speed = 150
+@export var speed = 150
 var player = Global.player
 var parent
 var gear_bullet = preload("res://scenes/enemy/GearBullet.tscn")
 var atk_cd = false
+var sprite = $AnimatedSprite2D
+@export var health = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = Global.player
@@ -16,6 +19,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if health <= 0:
+		queue_free()
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -31,6 +36,9 @@ func _physics_process(delta: float) -> void:
 	
 
 func flying_enemy():
+	pass
+	
+func enemy():
 	pass
 
 func flip():
@@ -83,3 +91,13 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_atk_cd_timeout() -> void:
 	atk_cd = false
 	pass # Replace with function body.
+
+func hurt_flicker():
+	sprite.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	sprite.modulate = Color.WHITE
+
+func hit():
+	print("hit")
+	health -= 25
+	hurt_flicker()

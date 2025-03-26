@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cb0nttk6ts6lq"]
+[gd_scene load_steps=15 format=3 uid="uid://cb0nttk6ts6lq"]
 
 [ext_resource type="Script" path="res://scripts/enemy/fly_enemy.gd" id="1_s3r2x"]
 [ext_resource type="Texture2D" uid="uid://bmepilpk38uf7" path="res://assests/enemy/CrimsonFlyingEye/Flight.png" id="2_8t14f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hk022"]
+radius = 15.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_csctb"]
 atlas = ExtResource("2_8t14f")
@@ -72,11 +73,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogfpw"]
 radius = 100.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ccde"]
+radius = 61.0082
+
 [node name="FlyingEnemy" type="CharacterBody2D"]
 position = Vector2(517, 257)
 script = ExtResource("1_s3r2x")
+speed = null
+health = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_hk022")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -94,6 +101,12 @@ position = Vector2(0, 8)
 [node name="Atk_cd" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_6ccde")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Atk_cd" to="." method="_on_atk_cd_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
