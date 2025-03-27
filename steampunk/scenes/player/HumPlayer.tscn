@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://m8mum727x572"]
+[gd_scene load_steps=22 format=3 uid="uid://m8mum727x572"]
 
 [ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_fxw60"]
 [ext_resource type="Texture2D" uid="uid://dcgmue0elvjc4" path="res://assests/player/Mechanic Mike/idle.png" id="2_e4012"]
+[ext_resource type="Texture2D" uid="uid://b4dtf104y0s1r" path="res://assests/player/Mechanic Mike/run.png" id="3_6rq3n"]
 [ext_resource type="PackedScene" uid="uid://b61fqprehb51a" path="res://scenes/player/weapons/Gun.tscn" id="3_28upd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdtij"]
@@ -32,6 +33,30 @@ region = Rect2(400, 0, 80, 64)
 atlas = ExtResource("2_e4012")
 region = Rect2(480, 0, 80, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsk8u"]
+atlas = ExtResource("3_6rq3n")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kheiv"]
+atlas = ExtResource("3_6rq3n")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvn6d"]
+atlas = ExtResource("3_6rq3n")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdn67"]
+atlas = ExtResource("3_6rq3n")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pajfg"]
+atlas = ExtResource("3_6rq3n")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h2g1"]
+atlas = ExtResource("3_6rq3n")
+region = Rect2(400, 0, 80, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_7b38p"]
 animations = [{
 "frames": [{
@@ -60,9 +85,27 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsk8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kheiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvn6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdn67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pajfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h2g1")
+}],
 "loop": true,
-"name": &"walk",
+"name": &"run",
 "speed": 5.0
 }]
 
@@ -105,9 +148,9 @@ script = ExtResource("1_fxw60")
 gravity = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
+position = Vector2(0, 10)
 sprite_frames = SubResource("SpriteFrames_7b38p")
-animation = &"walk"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
