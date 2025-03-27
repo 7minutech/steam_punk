@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmsqvsn5yc8wd"]
 
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="1_i4dxq"]
-[ext_resource type="PackedScene" uid="uid://2wprln6k11wx" path="res://scenes/player/RobotPlayer.tscn" id="2_2puju"]
+[ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="3_0f2e1"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_5de5q"]
 [ext_resource type="PackedScene" uid="uid://e3vdltb4rk4r" path="res://scenes/enemy/CrawlerEnemy.tscn" id="4_ic3ab"]
 
@@ -22,8 +22,8 @@ position = Vector2(430, 189)
 [node name="dissapearing_platforms" parent="." instance=ExtResource("3_5de5q")]
 position = Vector2(608, 212)
 
-[node name="RobotPlayer" parent="." instance=ExtResource("2_2puju")]
-position = Vector2(197, 90)
+[node name="HumanPlayer" parent="." instance=ExtResource("3_0f2e1")]
+position = Vector2(239, 61)
 gravity = true
 
 [node name="CrawlerEnemy" parent="." instance=ExtResource("4_ic3ab")]

@@ -7,9 +7,10 @@ const JUMP_VELOCITY: float = -400.0
 @export var health: int = 100
 @onready var sprite = $AnimatedSprite2D
 var invincbility: bool = false
+var running: bool = false
+var idling: bool = false
 func _ready() 	-> void:
 	Global.player = self
-	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
 	if health <= 0:
@@ -33,12 +34,18 @@ func _physics_process(delta: float) -> void:
 	if direction < 0:
 		$AnimatedSprite2D.flip_h = true
 		$Gun.flip_h = true
-	else:
+	if direction > 0:
 		$AnimatedSprite2D.flip_h = false
 		$Gun.flip_h = false
 	if direction:
+		running = true
+		run()
+		idling = false
 		velocity.x = direction * speed
 	else:
+		idling = true
+		idle()
+		running = false
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
@@ -64,3 +71,16 @@ func i_frames():
 func _on_invinc_timer_timeout() -> void:
 	invincbility = false
 	pass # Replace with function body.
+
+func run() -> void:
+	if running:
+		if idling:
+			$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("run")
+
+func idle() -> void:
+	if idling:
+		if running:
+			$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("idle")
+	
