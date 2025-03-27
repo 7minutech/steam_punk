@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://temporary_main.gd" id="1_8wehe"]
 [ext_resource type="PackedScene" uid="uid://b000k2yh4xnc5" path="res://temporary_player.tscn" id="2_5bwxc"]
 [ext_resource type="PackedScene" path="res://platform.tscn" id="3_bveet"]
-[ext_resource type="PackedScene" uid="uid://d7trdbjdw8hw" path="res://crate.tscn" id="4_i62i5"]
+[ext_resource type="PackedScene" path="res://crate.tscn" id="4_i62i5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bwjr"]
 
