@@ -48,14 +48,21 @@ func flip():
 		$AnimatedSprite2D.flip_h = false
 
 func hover_over_player():
-	if abs(player.position.x - position.x) < 5:
-		return
-	if player.position.x < position.x:
-		var direction = Vector2.LEFT
-		velocity = direction * speed
+	var height_distance = 85
+	var max_height_distance = height_distance + 5
+	var direction = Vector2(0,0)
+	var x_distance = player.position.x - position.x
+	if abs(x_distance) < 5:
+		pass
+	elif player.position.x < position.x:
+		direction += Vector2.LEFT
 	else:
-		var direction = Vector2.RIGHT
-		velocity = direction * speed
+		direction += Vector2.RIGHT
+	if (player.position.y - position.y) < height_distance:
+		direction += Vector2.UP
+	elif (player.position.y - position.y) > max_height_distance:
+		direction += Vector2.DOWN
+	velocity = direction * speed
 	move_and_slide()
 
 func player_in_atk_range():

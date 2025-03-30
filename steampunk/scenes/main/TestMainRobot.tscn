@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmsqvsn5yc8wd"]
 
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="1_i4dxq"]
-[ext_resource type="PackedScene" path="res://scenes/player/HumPlayer.tscn" id="3_0f2e1"]
+[ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="3_0f2e1"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_5de5q"]
-[ext_resource type="PackedScene" uid="uid://e3vdltb4rk4r" path="res://scenes/enemy/CrawlerEnemy.tscn" id="4_ic3ab"]
+[ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="4_fjank"]
 
 [node name="TestMainRobot" type="Node2D"]
 
@@ -23,8 +23,9 @@ position = Vector2(430, 189)
 position = Vector2(608, 212)
 
 [node name="HumanPlayer" parent="." instance=ExtResource("3_0f2e1")]
-position = Vector2(239, 61)
+position = Vector2(202, 185)
 gravity = true
+health = 1000
 
-[node name="CrawlerEnemy" parent="." instance=ExtResource("4_ic3ab")]
-position = Vector2(308, 197)
+[node name="FlyingEnemy" parent="." instance=ExtResource("4_fjank")]
+position = Vector2(323, 103)
