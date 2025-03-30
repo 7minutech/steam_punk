@@ -29,12 +29,9 @@ func _physics_process(delta: float) -> void:
 	flip()
 	if player_in_atk_range():
 		var gear_instace = gear_bullet.instantiate()
-		self.add_child(gear_instace)
-		gear_instace.position = $Drop.position
+		gear_instace.global_position = self.global_position  
+		get_tree().current_scene.add_child(gear_instace)  
 		
-	
-	
-
 func flying_enemy():
 	pass
 	
@@ -72,10 +69,6 @@ func player_in_atk_range():
 		return true
 	return false
 
-
-		
-	
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var distance = player.position.x - position.x
 	print("Player x: " + str(player.position.x))
@@ -87,13 +80,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print("chasing player now")
 	pass # Replace with function body.
 
-
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		chasing_player = false
 		print("not chasing player now")
 	pass # Replace with function body.
-
 
 func _on_atk_cd_timeout() -> void:
 	atk_cd = false
