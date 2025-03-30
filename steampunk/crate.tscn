@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bibpw72b7k3q3"]
+
+[ext_resource type="Script" path="res://crate.gd" id="1_8npiv"]
+[ext_resource type="Texture2D" uid="uid://cv7rml7c6xl2m" path="res://chest.png" id="2_qkwxo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46hut"]
+size = Vector2(21, 13)
+
+[node name="crate" type="StaticBody2D"]
+script = ExtResource("1_8npiv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(0.71875, 0.625)
+texture = ExtResource("2_qkwxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_46hut")
