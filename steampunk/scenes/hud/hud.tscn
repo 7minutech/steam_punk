@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0bmr8frh2dga"]
+
+[ext_resource type="Script" path="res://scripts/hud/hud.gd" id="1_puiw2"]
+[ext_resource type="Texture2D" uid="uid://cc4d23bdmaokn" path="res://assests/UI/pirate skull_transparent.png" id="1_qfnkr"]
+[ext_resource type="LabelSettings" uid="uid://yf80o5qrirnk" path="res://scenes/hud/new_label_settings.tres" id="2_ii7w3"]
+[ext_resource type="FontFile" uid="uid://08j1ebqqxj8f" path="res://assests/fonts/Steam Punk Flyer.ttf" id="2_s27ta"]
+[ext_resource type="Script" path="res://scripts/hud/health_bar.gd" id="5_qmsl3"]
+[ext_resource type="Texture2D" uid="uid://b8edt435hul6c" path="res://assests/UI/healthbarUnder.png" id="6_njloe"]
+[ext_resource type="Texture2D" uid="uid://cb12mxtxoan5b" path="res://assests/UI/healthbarProgress.png" id="7_27m2i"]
+[ext_resource type="Script" path="res://scripts/hud/texture_progress_bar.gd" id="8_06vr6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_da605"]
+font = ExtResource("2_s27ta")
+font_size = 24
+
+[node name="Hud" type="Control" node_paths=PackedStringArray("kill_label", "kill_count_label") groups=["hud"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_puiw2")
+kill_label = NodePath("KillLabel")
+kill_count_label = NodePath("KillTexture/KillCount")
+
+[node name="KillTexture" type="TextureRect" parent="."]
+layout_mode = 1
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 128.0
+texture = ExtResource("1_qfnkr")
+stretch_mode = 4
+
+[node name="KillCount" type="Label" parent="KillTexture"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -32.0
+offset_right = 125.0
+offset_bottom = 33.0
+grow_vertical = 2
+text = "x 00"
+label_settings = SubResource("LabelSettings_da605")
+vertical_alignment = 1
+
+[node name="KillLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 58.0
+text = "Kill Count"
+label_settings = ExtResource("2_ii7w3")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 424.0
+offset_right = 544.0
+offset_bottom = 27.0
+script = ExtResource("5_qmsl3")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 8.0
+offset_right = 680.0
+offset_bottom = 48.0
+nine_patch_stretch = true
+texture_under = ExtResource("6_njloe")
+texture_progress = ExtResource("7_27m2i")
+script = ExtResource("8_06vr6")

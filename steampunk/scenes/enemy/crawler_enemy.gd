@@ -13,6 +13,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if health <= 0:
+		KillObserver.update_kill_count(1)
 		queue_free()
 	if path_follow.progress_ratio > 0.5:
 		sprite.flip_h = false

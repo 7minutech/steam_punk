@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/global/Global.gd"
 SceneSwitcher="*res://scripts/global/SceneSwitcher.gd"
+KillObserver="*res://scripts/global/KillObserver.gd"
+HealthObserver="*res://scripts/global/HealthObserver.gd"
 
 [input]
 

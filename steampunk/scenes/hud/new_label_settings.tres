@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://yf80o5qrirnk"]
+
+[ext_resource type="FontFile" uid="uid://08j1ebqqxj8f" path="res://assests/fonts/Steam Punk Flyer.ttf" id="1_os6wx"]
+
+[resource]
+font = ExtResource("1_os6wx")
+font_size = 24

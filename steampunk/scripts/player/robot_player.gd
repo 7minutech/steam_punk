@@ -1,16 +1,18 @@
 extends CharacterBody2D
-
+class_name Player
 
 @export var speed: float = 200.0
 const JUMP_VELOCITY: float = -400.0 
 @export var gravity: bool = true
 @export var health: int = 100
+var max_health: int = 100
 @onready var sprite = $AnimatedSprite2D
 var invincbility: bool = false
 var running: bool = false
 var idling: bool = false
 func _ready() 	-> void:
 	Global.player = self
+	HealthObserver.player = self
 
 func _physics_process(delta: float) -> void:
 	if health <= 0:
@@ -60,6 +62,7 @@ func hurt_flicker():
 
 func hit(damage:int):
 	health -= damage
+	HealthObserver.update_current_health(health)
 	hurt_flicker()
 
 func i_frames():

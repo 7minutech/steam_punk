@@ -20,6 +20,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if health <= 0:
+		KillObserver.update_kill_count(1)
 		queue_free()
 	pass
 
