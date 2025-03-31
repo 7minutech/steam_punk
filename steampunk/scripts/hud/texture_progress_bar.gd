@@ -8,3 +8,4 @@ func _ready() -> void:
 
 func update():
 	value = HealthObserver.current_health * 100 / HealthObserver.max_health
+	#$Label.text = str(HealthObserver.current_health) + " / " + str(HealthObserver.max_health)

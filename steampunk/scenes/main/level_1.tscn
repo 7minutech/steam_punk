@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfnn2e6colnha"]
+[gd_scene load_steps=6 format=3 uid="uid://cfnn2e6colnha"]
 
 [ext_resource type="Texture2D" uid="uid://cvwruj6f6ke13" path="res://assests/backgrounds/level_1.png" id="1_16ts0"]
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_62gxx"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_byipa"]
 [ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="4_meirw"]
-[ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_e1gjq"]
 [ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="6_rbiq4"]
 
 [node name="Level_1" type="Node2D"]
@@ -53,11 +52,6 @@ limit_left = 0
 limit_top = 0
 limit_right = 1150
 limit_bottom = 650
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="Hud" parent="CanvasLayer" instance=ExtResource("5_e1gjq")]
 
 [node name="FlyingEnemy" parent="." instance=ExtResource("6_rbiq4")]
 position = Vector2(451, 324)

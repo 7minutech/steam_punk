@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://m8mum727x572"]
+[gd_scene load_steps=16 format=3 uid="uid://m8mum727x572"]
 
 [ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_fxw60"]
 [ext_resource type="Texture2D" uid="uid://dcgmue0elvjc4" path="res://assests/player/Mechanic Mike/idle.png" id="2_e4012"]
 [ext_resource type="PackedScene" uid="uid://b61fqprehb51a" path="res://scenes/player/weapons/Gun.tscn" id="3_28upd"]
+[ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="4_enpdn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdtij"]
 atlas = ExtResource("2_e4012")
@@ -132,3 +133,7 @@ script = SubResource("GDScript_okl78")
 
 [node name="Gun" parent="." instance=ExtResource("3_28upd")]
 position = Vector2(1, 19)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("4_enpdn")]
