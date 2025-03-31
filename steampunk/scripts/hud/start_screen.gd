@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	SceneSwitcher.switch_scene("res://scenes/main/TestMainRobot.tscn")
+	SceneSwitcher.switch_scene("res://scenes/main/level_1.tscn")
 	pass # Replace with function body.
 
 
