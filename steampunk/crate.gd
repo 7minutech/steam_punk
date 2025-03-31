@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func take_damage(amount: int):
+func hit(amount: int):
 	health -= amount
 	if health <= 0:
 		remove()

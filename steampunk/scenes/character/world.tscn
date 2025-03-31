@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://f0m2nuwtl7sh" path="res://scenes/character/player.tscn" id="1_nrims"]
 [ext_resource type="PackedScene" uid="uid://dtmj3fo5tr5p3" path="res://scenes/character/platform.tscn" id="2_nbcs3"]
-[ext_resource type="PackedScene" uid="uid://bitvi1nfaavbq" path="res://scenes/character/doublejump.tscn" id="3_4a5pc"]
+[ext_resource type="PackedScene" uid="uid://brb3jpkdvudeg" path="res://scenes/character/doublejump.tscn" id="3_4a5pc"]
 
 [node name="world" type="Node2D"]
 

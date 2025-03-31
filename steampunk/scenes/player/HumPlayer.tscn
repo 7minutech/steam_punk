@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://m8mum727x572"]
+[gd_scene load_steps=15 format=3 uid="uid://b5m1nsobbval4"]
 
 [ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_fxw60"]
 [ext_resource type="Texture2D" uid="uid://dcgmue0elvjc4" path="res://assests/player/Mechanic Mike/idle.png" id="2_e4012"]

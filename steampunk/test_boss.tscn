@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmdvrhkks3lfy"]
+
+[ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="1_wuqep"]
+[ext_resource type="PackedScene" uid="uid://cfm7kx1ub72ky" path="res://boss.tscn" id="2_yxfv5"]
+[ext_resource type="PackedScene" uid="uid://2wprln6k11wx" path="res://scenes/player/RobotPlayer.tscn" id="3_ltwwp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p87er"]
+
+[node name="testBoss" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(89, 440)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_p87er")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(0, 160)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("WorldBoundaryShape2D_p87er")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(320, 352)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+shape = SubResource("WorldBoundaryShape2D_p87er")
+
+[node name="Platform" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(776, 336)
+rotation = -1.5708
+scale = Vector2(8.11201, 1.99996)
+
+[node name="Platform2" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(464, 432)
+rotation = 1.5708
+
+[node name="Platform3" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(496, 448)
+
+[node name="Platform5" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(544, 448)
+
+[node name="Platform6" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(592, 448)
+
+[node name="Platform7" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(640, 448)
+
+[node name="Platform11" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(464, 384)
+rotation = 1.5708
+
+[node name="Platform12" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(464, 336)
+rotation = 1.5708
+
+[node name="Platform4" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(688, 448)
+
+[node name="Platform8" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(736, 448)
+
+[node name="Boss" parent="." instance=ExtResource("2_yxfv5")]
+position = Vector2(552, 248)
+
+[node name="RobotPlayer" parent="." instance=ExtResource("3_ltwwp")]
+position = Vector2(696, 409)
