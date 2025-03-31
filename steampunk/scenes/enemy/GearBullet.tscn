@@ -1,81 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://q7mbib5wbfi2"]
+[gd_scene load_steps=5 format=3 uid="uid://q7mbib5wbfi2"]
 
 [ext_resource type="Script" path="res://scripts/enemy/gear_bullt.gd" id="1_ka6wu"]
-[ext_resource type="Texture2D" uid="uid://wivlji6ntauc" path="res://assests/enemy/Effect and Bullet 16x16/Effect and Bullet 16x16/Fire Effect and Bullet 16x16.png" id="2_eqagb"]
+[ext_resource type="Texture2D" uid="uid://7t3lvgk0rjph" path="res://assests/objects/gear.png" id="2_mdyke"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_co3ph"]
 radius = 5.09902
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yq4j5"]
-atlas = ExtResource("2_eqagb")
-region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_07f5v"]
-atlas = ExtResource("2_eqagb")
-region = Rect2(0, 48, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8kfrv"]
-atlas = ExtResource("2_eqagb")
-region = Rect2(0, 64, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_manod"]
-atlas = ExtResource("2_eqagb")
-region = Rect2(0, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lu6ik"]
-atlas = ExtResource("2_eqagb")
-region = Rect2(0, 96, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_31eka"]
-atlas = ExtResource("2_eqagb")
-region = Rect2(0, 112, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8p0ii"]
-atlas = ExtResource("2_eqagb")
-region = Rect2(0, 128, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pu0y4"]
-atlas = ExtResource("2_eqagb")
-region = Rect2(0, 144, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fhrg0"]
-atlas = ExtResource("2_eqagb")
-region = Rect2(0, 160, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3g334"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yq4j5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_07f5v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8kfrv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_manod")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lu6ik")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_31eka")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8p0ii")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pu0y4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fhrg0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_elm8q"]
 radius = 5.09902
@@ -83,13 +12,14 @@ radius = 5.09902
 [node name="GearBullet" type="Area2D"]
 position = Vector2(171, 87)
 script = ExtResource("1_ka6wu")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_co3ph")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_3g334")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.499997, 0)
+scale = Vector2(0.025, 0.02)
+texture = ExtResource("2_mdyke")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
