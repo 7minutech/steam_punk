@@ -11,7 +11,7 @@ atlas = SubResource("AtlasTexture_qryrv")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqv3v"]
 size = Vector2(821, 183)
 
-[node name="WalkablePlatform" type="Node2D"]
+[node name="WalkablePlatform" type="Node2D" groups=["platforms"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

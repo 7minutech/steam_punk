@@ -9,7 +9,7 @@ size = Vector2(90, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nkk6"]
 size = Vector2(88, 12)
 
-[node name="dissapearing_platforms" type="AnimatableBody2D"]
+[node name="dissapearing_platforms" type="AnimatableBody2D" groups=["platforms"]]
 script = ExtResource("1_4a2wx")
 
 [node name="sprite2d" type="Sprite2D" parent="."]
