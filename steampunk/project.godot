@@ -21,6 +21,7 @@ Global="*res://scripts/global/Global.gd"
 SceneSwitcher="*res://scripts/global/SceneSwitcher.gd"
 KillObserver="*res://scripts/global/KillObserver.gd"
 HealthObserver="*res://scripts/global/HealthObserver.gd"
+SignalBus="*res://scripts/global/SignalBus.gd"
 
 [input]
 

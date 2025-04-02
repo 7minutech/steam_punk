@@ -87,3 +87,8 @@ func idle() -> void:
 			$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.play("idle")
 	
+
+
+func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+	SignalBus.player_fell_off.emit()
+	pass # Replace with function body.

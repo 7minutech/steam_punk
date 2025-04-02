@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://lqam4eox54e1"]
+[gd_scene load_steps=7 format=3 uid="uid://lqam4eox54e1"]
 
+[ext_resource type="Script" path="res://scripts/main/level_3.gd" id="1_1qlcl"]
 [ext_resource type="Texture2D" uid="uid://2jxbrwqy2rfe" path="res://assests/backgrounds/level_3.png" id="1_mo1pe"]
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_p6sc4"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_y5h3f"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_c5k47"]
 
 [node name="Level_3" type="Node2D"]
+script = ExtResource("1_1qlcl")
 
 [node name="Level1Background" type="Sprite2D" parent="."]
 position = Vector2(576, 323.5)
@@ -57,3 +59,6 @@ limit_bottom = 650
 visible = false
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("5_c5k47")]
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(140, 397)
