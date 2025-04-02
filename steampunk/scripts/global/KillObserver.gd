@@ -1,6 +1,7 @@
 extends Node
 
 var kill_count: int
+var life_count: int
 var hud: Hud
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,3 +21,11 @@ func update_kill_count(count: int):
 
 func reset_kill_count():
 	kill_count = 0
+
+func update_life_count(count: int):
+	life_count = count
+	if hud != null:
+		hud.update_life_count(life_count)
+
+func reset_life_count():
+	life_count = 0

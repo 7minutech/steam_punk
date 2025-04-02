@@ -2,6 +2,7 @@ extends Control
 class_name Hud
 @export var kill_label: Label
 @export var kill_count_label: Label
+@export var life_count_label: Label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	KillObserver.hud = self
@@ -12,6 +13,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
+func update_life_count(count: int):
+	life_count_label.text = "x " + str(count)
 
 func update_kill_count(count: int):
 	kill_count_label.text = "x " + str(count)

@@ -10,14 +10,22 @@ var max_health: int = 100
 var invincbility: bool = false
 var running: bool = false
 var idling: bool = false
+var lives: int = 3
 func _ready() 	-> void:
 	Global.player = self
 	HealthObserver.player = self
+	HealthObserver.update_current_health(health)
+	KillObserver.update_life_count(lives)
 
 func _physics_process(delta: float) -> void:
 	if health <= 0:
-		sprite.hide()
-	# Add the gravity.
+		lives -= 1
+		KillObserver.update_life_count(lives)
+	# Add the gravity.\
+	if lives <= 0:
+		$AnimatedSprite2D.hide()
+		SceneSwitcher.switch_scene("res://scenes/hud/start_screen.tscn")
+	
 	if not is_on_floor():
 		if gravity:
 			velocity += get_gravity() * delta
@@ -90,5 +98,7 @@ func idle() -> void:
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+	lives -= 1
+	KillObserver.update_life_count(lives)
 	SignalBus.player_fell_off.emit()
 	pass # Replace with function body.
