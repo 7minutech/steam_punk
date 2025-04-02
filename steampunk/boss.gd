@@ -10,12 +10,11 @@ extends CharacterBody2D
 var projectile = preload("res://bullet_boss.tscn")
 var gravity = ProjectSettings.get("physics/2d/default_gravity")
 
-@export var speed: float = 75.0  
-@export var jump_force: float = -500.0  
+@export var speed: float = 40.0  
+@export var jump_force: float = -400.0  
 var direction: int = 1  
 
-@onready var raycast_right: RayCast2D = $RayCast2DRight
-@onready var raycast_left: RayCast2D = $RayCast2DLeft
+
 @onready var ray_cast_2d_down_right: RayCast2D = $"RayCast2DDown-Right"
 @onready var ray_cast_2d_down_left: RayCast2D = $"RayCast2DDown-Left"
 
@@ -24,13 +23,9 @@ var direction: int = 1
 @export var attack_cooldown = 1.5  
 
 
-@export var base_jump_force: float = -400.0  
-@export var max_jump_force: float = -650.0 
+@onready var teleport_timer: Timer = $TeleportTimer
+@onready var area_2d: Area2D = $Area2D
 
-@onready var ray_cast_2d: RayCast2D = $RayCast2D
-@onready var ray_cast_2d_2: RayCast2D = $RayCast2D2
-@onready var ray_cast_2d_3: RayCast2D = $RayCast2D3
-@onready var ray_cast_2d_4: RayCast2D = $RayCast2D4
 
 var player = null
 var can_attack = true
@@ -38,9 +33,16 @@ var can_attack = true
 var directions = [Vector2.LEFT]
 var health: int = 200  
 
+var teleport_points = [
+	Vector2(752, 270),
+	Vector2(672, 260),
+	Vector2(576, 236),
+	Vector2(496, 260)
+]
+#this needs to be changed to the coordinates of the points from the platforms where the boss will teleport
+
 func hit(amount: int):
 	health -= amount
-	label.text = str(health)
 	if health <= 0:
 		die()
 
@@ -53,6 +55,8 @@ func _ready():
 	
 	jump_timer.start()  
 	direction = randi() % 2 * 2 - 1  
+	
+	teleport_timer.start()
 
 func _on_timer_timeout(): 
 	animated_sprite_2d.play("shoot")  
@@ -62,20 +66,25 @@ func _on_timer_timeout():
 	animated_sprite_2d.play("idle")
 
 func shoot():
-	if direction > 0:  
-		var instance = projectile.instantiate()
-		instance.position = $ShootingPointRight.global_position
-		get_parent().add_child(instance)  
+	if direction > 0: 
+		spawn_projectile($ShootingPointRight.global_position, Vector2(1, -5))  
+		spawn_projectile($ShootingPointRight.global_position, Vector2(1, -3)) 
+		spawn_projectile($ShootingPointRight.global_position, Vector2(1, -1))  
 
-		if instance.has_method("set_direction"):  
-			instance.set_direction(Vector2(1,-1))
-	elif direction < 0:
-		var instance = projectile.instantiate()
-		instance.position = $ShootingPointLeft.global_position
-		get_parent().add_child(instance)  
+	elif direction < 0:  
+		spawn_projectile($ShootingPointLeft.global_position, Vector2(-1, -5))  
+		spawn_projectile($ShootingPointLeft.global_position, Vector2(-1, -4))  
+		spawn_projectile($ShootingPointLeft.global_position, Vector2(-1, -3))
+		#more projectile can be added here
+		#the direction and speed of projectiles can be changed in bullet_boss scene 
+		
+func spawn_projectile(position: Vector2, direction: Vector2):
+	var instance = projectile.instantiate()
+	instance.position = position
+	get_parent().add_child(instance)  
 
-		if instance.has_method("set_direction"):  
-			instance.set_direction(Vector2(-1,-1))
+	if instance.has_method("set_direction"):  
+		instance.set_direction(direction) 
 
 func _physics_process(delta: float) -> void:
 	if animated_sprite_2d.animation != "attack":  
@@ -84,7 +93,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	if (direction > 0 and raycast_right.is_colliding()) or (direction < 0 and raycast_left.is_colliding()):
+	if (direction > 0 and (not ray_cast_2d_down_right.is_colliding())) or (direction < 0 and (not ray_cast_2d_down_left.is_colliding())):
 		direction *= -1 
 
 	velocity.x = direction * speed  
@@ -98,9 +107,6 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("move")
 		else:
 			animated_sprite_2d.play("idle")
-		
-	if ((not ray_cast_2d_down_right.is_colliding()) or (not ray_cast_2d_down_left.is_colliding())) and (is_on_floor()):
-		velocity.y = jump_force
 		
 	if player:
 		var distance = global_position.distance_to(player.global_position)
@@ -125,33 +131,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hero"):
 		player = body
 		
-func detect_next_platform():
-	if ray_cast_2d.is_colliding():
-		return ray_cast_2d.get_collision_point()
-	elif ray_cast_2d_2.is_colliding():
-		return ray_cast_2d_2.get_collision_point()
-	elif ray_cast_2d_3.is_colliding():
-		return ray_cast_2d_3.get_collision_point()
-	elif ray_cast_2d_4.is_colliding():
-		return ray_cast_2d_4.get_collision_point()
-	return null
-
-func jump_to(target_position):
-	var distance_x = target_position.x - global_position.x
-	var distance_y = target_position.y - global_position.y
-	var jump_force = base_jump_force - (distance_y * 1.2)  
-
-	velocity = Vector2(speed * direction, jump_force)
-	
-	if (not raycast_right.is_colliding()) and (is_on_floor()):
-		velocity.y = jump_force 
-
-
 func _on_jump_timer_timeout() -> void:
-	if is_on_floor() and ray_cast_2d_down_left.is_colliding() and ray_cast_2d_down_right.is_colliding():  
-		var collider = ray_cast_2d_down_right.get_collider()
-		
-		if collider and not collider.is_in_group("platforms"):  
-			velocity.y = jump_force  
-			jump_timer.start(randf_range(1.0, 3.0)) 
-			direction = randi() % 2 * 2 - 1     
+		velocity.y = jump_force  
+		jump_timer.start(randf_range(1.0, 3.0)) 
+		direction = randi() % 2 * 2 - 1     
+
+func _on_teleport_timer_timeout() -> void:
+	teleport_randomly()
+	
+func teleport_randomly():
+	var random_index = randi() % teleport_points.size()  # Pick a random index
+	position = teleport_points[random_index]  # Teleport to the chosen position

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed: float = 200
-var direction = Vector2.RIGHT  
+@export var speed: float = 300
+var direction = Vector2.UP
 @export var damage: int = 10
 @export var gravity: float = 300  
 

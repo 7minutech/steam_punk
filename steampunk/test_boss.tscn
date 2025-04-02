@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="1_wuqep"]
 [ext_resource type="PackedScene" uid="uid://cfm7kx1ub72ky" path="res://boss.tscn" id="2_yxfv5"]
-[ext_resource type="PackedScene" uid="uid://2wprln6k11wx" path="res://scenes/player/RobotPlayer.tscn" id="3_ltwwp"]
+[ext_resource type="PackedScene" uid="uid://b5m1nsobbval4" path="res://scenes/player/HumPlayer.tscn" id="3_omlwa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p87er"]
 
@@ -34,25 +34,30 @@ shape = SubResource("WorldBoundaryShape2D_p87er")
 position = Vector2(400, 224)
 
 [node name="Platform7" parent="." instance=ExtResource("1_wuqep")]
-position = Vector2(496, 290)
+position = Vector2(456, 294)
+scale = Vector2(2.56, 1)
 
 [node name="Platform4" parent="." instance=ExtResource("1_wuqep")]
 position = Vector2(570, 263)
+scale = Vector2(2.23399, 1.28663)
 
 [node name="Boss" parent="." instance=ExtResource("2_yxfv5")]
-position = Vector2(832, 261)
+position = Vector2(672, 248)
 
 [node name="Platform9" parent="." instance=ExtResource("1_wuqep")]
 position = Vector2(672, 285)
+scale = Vector2(2, 1)
 
 [node name="Platform10" parent="." instance=ExtResource("1_wuqep")]
-position = Vector2(752, 299)
+position = Vector2(760, 299)
+scale = Vector2(1.6, 1)
 
 [node name="Platform13" parent="." instance=ExtResource("1_wuqep")]
-position = Vector2(832, 285)
+position = Vector2(848, 285)
+scale = Vector2(1.92, 1)
 
 [node name="Platform14" parent="." instance=ExtResource("1_wuqep")]
-position = Vector2(904, 256)
+position = Vector2(944, 168)
 
 [node name="Platform15" parent="." instance=ExtResource("1_wuqep")]
 position = Vector2(968, 248)
@@ -63,5 +68,5 @@ position = Vector2(688, 424)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_dty2o")
 
-[node name="RobotPlayer" parent="." groups=["player"] instance=ExtResource("3_ltwwp")]
-position = Vector2(640, 385)
+[node name="HumanPlayer" parent="." instance=ExtResource("3_omlwa")]
+position = Vector2(672, 398)
