@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cc4d23bdmaokn" path="res://assests/UI/pirate skull_transparent.png" id="1_qfnkr"]
 [ext_resource type="LabelSettings" uid="uid://yf80o5qrirnk" path="res://scenes/hud/new_label_settings.tres" id="2_ii7w3"]
 [ext_resource type="FontFile" uid="uid://08j1ebqqxj8f" path="res://assests/fonts/Steam Punk Flyer.ttf" id="2_s27ta"]
-[ext_resource type="Texture2D" uid="uid://b6uk3qkhx31c5" path="res://assests/UI/IconGodotNode/IconGodotNode/control/icon_character.png" id="4_befwa"]
+[ext_resource type="Texture2D" uid="uid://cypgsq0qsrumu" path="res://assests/UI/icon_character.png" id="4_eqrgp"]
 [ext_resource type="Script" path="res://scripts/hud/health_bar.gd" id="5_qmsl3"]
 [ext_resource type="Texture2D" uid="uid://b8edt435hul6c" path="res://assests/UI/healthbarUnder.png" id="6_njloe"]
 [ext_resource type="Texture2D" uid="uid://cb12mxtxoan5b" path="res://assests/UI/healthbarProgress.png" id="7_27m2i"]
@@ -54,7 +54,7 @@ offset_left = 11.0
 offset_top = 206.0
 offset_right = 58.0
 offset_bottom = 257.0
-texture = ExtResource("4_befwa")
+texture = ExtResource("4_eqrgp")
 stretch_mode = 4
 
 [node name="LifeCount" type="Label" parent="LifeTexture"]
