@@ -44,7 +44,7 @@ position = Vector2(729, 382)
 position = Vector2(872, 337)
 
 [node name="HumanPlayer" parent="." instance=ExtResource("4_meirw")]
-position = Vector2(171, 417)
+position = Vector2(161, 473)
 gravity = true
 
 [node name="Camera2D2" type="Camera2D" parent="HumanPlayer"]

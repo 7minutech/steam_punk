@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://catwqbih8gya8"
-path="res://.godot/imported/43.png-06fc69ab015376c97bcd4d50ec07e54f.ctex"
+uid="uid://20o5ab1ks1xt"
+path="res://.godot/imported/ant_gun.png-8f3c342e5b03581c9fe8833512fb7d85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/player/SnoopethDuckDuck Guns/Pack 1/1px/43.png"
-dest_files=["res://.godot/imported/43.png-06fc69ab015376c97bcd4d50ec07e54f.ctex"]
+source_file="res://assests/player/ant_gun.png"
+dest_files=["res://.godot/imported/ant_gun.png-8f3c342e5b03581c9fe8833512fb7d85.ctex"]
 
 [params]
 

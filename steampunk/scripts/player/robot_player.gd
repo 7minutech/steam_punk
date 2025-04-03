@@ -11,7 +11,9 @@ var invincbility: bool = false
 var running: bool = false
 var idling: bool = false
 var lives: int = 3
+@export_enum("yellow_gun","green_gun","blue_rifle","blue_gun","ant_shotgun","ant_gun") var gun_sprite: String
 func _ready() 	-> void:
+	swap_gun_sprite(gun_sprite)
 	Global.player = self
 	HealthObserver.player = self
 	HealthObserver.update_current_health(health)
@@ -102,3 +104,21 @@ func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	KillObserver.update_life_count(lives)
 	SignalBus.player_fell_off.emit()
 	pass # Replace with function body.
+
+func swap_gun_sprite(name: String):
+	match name:
+		"yellow_gun":
+			$Gun.texture = load("res://assests/player/yellow_gun.png")
+		"green_gun":
+			$Gun.texture = load("res://assests/player/green_gun.png")
+		"blue_rifle":
+			$Gun.texture = load("res://assests/player/blue_rifle.png")
+		"blue_gun":
+			$Gun.texture = load("res://assests/player/blue_gun.png")
+		"ant_shotgun":
+			$Gun.texture = load("res://assests/player/ant_shotgun.png")
+		"ant_gun":
+			$Gun.texture = load("res://assests/player/ant_gun.png")
+		_:
+			$Gun.texture = load("res://assests/player/sGun.png")
+			
