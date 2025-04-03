@@ -15,8 +15,7 @@ script = ExtResource("1_0xeip")
 offset_left = -576.0
 offset_right = 576.0
 offset_bottom = 74.0
-text = "Title of the Game
-"
+text = "Cog Wheel Odyssey"
 label_settings = SubResource("LabelSettings_nyo50")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -71,15 +71,16 @@ func player_in_atk_range():
 	return false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	var distance = player.position.x - position.x
-	print("Player x: " + str(player.position.x))
-	print("Enmey x: " + str(position.x))
-	print("Distanct to player: " + str(distance))
-	if body.has_method("player"):
-		player = body
-		chasing_player = true
-		print("chasing player now")
-	pass # Replace with function body.
+	if player != null:
+		var distance = player.position.x - position.x
+		print("Player x: " + str(player.position.x))
+		print("Enmey x: " + str(position.x))
+		print("Distanct to player: " + str(distance))
+		if body.has_method("player"):
+			player = body
+			chasing_player = true
+			print("chasing player now")
+		pass # Replace with function body.
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0bmr8frh2dga"]
+[gd_scene load_steps=16 format=3 uid="uid://d0bmr8frh2dga"]
 
 [ext_resource type="Script" path="res://scripts/hud/hud.gd" id="1_puiw2"]
 [ext_resource type="Texture2D" uid="uid://cc4d23bdmaokn" path="res://assests/UI/pirate skull_transparent.png" id="1_qfnkr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://022udtetgvxj" path="res://assests/ability/grappling_hook.png" id="10_tj1up"]
 [ext_resource type="Texture2D" uid="uid://c7qy0ew7q8s31" path="res://assests/player/yellow_gun.png" id="11_d28mr"]
 [ext_resource type="Texture2D" uid="uid://ds18m8s52ev67" path="res://assests/UI/border.png" id="12_qkv6w"]
+[ext_resource type="PackedScene" uid="uid://cxlparljkf7ot" path="res://scenes/hud/TransitionText.tscn" id="13_4a6qg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_da605"]
 font = ExtResource("2_s27ta")
@@ -32,14 +33,14 @@ script = ExtResource("1_puiw2")
 kill_label = NodePath("KillLabel")
 kill_count_label = NodePath("KillTexture/KillCount")
 life_count_label = NodePath("LifeTexture/LifeCount")
-ability_label = NodePath("Ability_Texture/Ability_label")
-weapon_label = NodePath("Weapon_Texture/WeaponLabel")
+ability_label = NodePath("Ability_Texture/ability_label")
+weapon_label = NodePath("Weapon_Texture/weapon_label")
 
 [node name="KillTexture" type="TextureRect" parent="."]
 layout_mode = 1
-offset_top = 64.0
+offset_top = 56.0
 offset_right = 64.0
-offset_bottom = 128.0
+offset_bottom = 120.0
 texture = ExtResource("1_qfnkr")
 stretch_mode = 4
 
@@ -59,10 +60,10 @@ vertical_alignment = 1
 
 [node name="LifeTexture" type="TextureRect" parent="."]
 layout_mode = 1
-offset_left = 11.0
-offset_top = 206.0
-offset_right = 58.0
-offset_bottom = 257.0
+offset_left = 16.0
+offset_top = 184.0
+offset_right = 63.0
+offset_bottom = 235.0
 texture = ExtResource("4_eqrgp")
 stretch_mode = 4
 
@@ -91,13 +92,14 @@ label_settings = ExtResource("2_ii7w3")
 
 [node name="LifeLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 138.0
-offset_right = 118.0
-offset_bottom = 188.0
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 116.0
+offset_bottom = 178.0
 theme_override_fonts/font = ExtResource("2_s27ta")
 theme_override_font_sizes/font_size = 24
 text = "Life Count"
+label_settings = ExtResource("2_ii7w3")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 visible = false
@@ -134,14 +136,25 @@ offset_bottom = -72.0
 grow_vertical = 0
 texture = ExtResource("10_tj1up")
 
-[node name="Ability_label" type="Label" parent="Ability_Texture"]
+[node name="ability_label" type="Label" parent="Ability_Texture"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -48.0
+offset_right = 88.0
+offset_bottom = -18.0
+text = "Old Henry"
+label_settings = SubResource("LabelSettings_0o0eq")
+vertical_alignment = 1
+
+[node name="Ability_label_2" type="Label" parent="Ability_Texture"]
+visible = false
 layout_mode = 0
 offset_left = -24.0
 offset_top = -32.0
 offset_right = 80.0
 offset_bottom = 1.0
 theme_override_fonts/font = ExtResource("2_s27ta")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 16
 text = "Double Jump"
 label_settings = ExtResource("2_ii7w3")
 vertical_alignment = 1
@@ -159,12 +172,12 @@ offset_bottom = -72.0
 grow_vertical = 0
 texture = ExtResource("11_d28mr")
 
-[node name="WeaponLabel" type="Label" parent="Weapon_Texture"]
+[node name="weapon_label" type="Label" parent="Weapon_Texture"]
 layout_mode = 0
-offset_left = -8.0
-offset_top = -32.0
-offset_right = 104.0
-offset_bottom = -2.0
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 96.0
+offset_bottom = -18.0
 text = "Old Henry"
 label_settings = SubResource("LabelSettings_0o0eq")
 vertical_alignment = 1
@@ -174,9 +187,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 184.0
+offset_left = 176.0
 offset_top = -160.0
-offset_right = 336.0
+offset_right = 328.0
 offset_bottom = -66.0
 grow_vertical = 0
 texture = ExtResource("12_qkv6w")
@@ -186,9 +199,19 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
 offset_top = -160.0
-offset_right = 160.0
+offset_right = 152.0
 offset_bottom = -66.0
 grow_vertical = 0
 texture = ExtResource("12_qkv6w")
+
+[node name="TransitionText" parent="." instance=ExtResource("13_4a6qg")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 0.0
+offset_right = 93.0
+offset_bottom = 74.0
+grow_horizontal = 2

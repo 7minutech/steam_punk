@@ -1,0 +1,185 @@
+[gd_scene load_steps=21 format=3 uid="uid://cr5pt7hwgfn6e"]
+
+[ext_resource type="Script" path="res://scripts/hud/character_select.gd" id="1_gkbc0"]
+[ext_resource type="FontFile" uid="uid://08j1ebqqxj8f" path="res://assests/fonts/Steam Punk Flyer.ttf" id="2_unkhe"]
+[ext_resource type="Texture2D" uid="uid://dcgmue0elvjc4" path="res://assests/player/Mechanic Mike/idle.png" id="4_508tf"]
+[ext_resource type="Texture2D" uid="uid://8a1a130rfxiy" path="res://assests/player/Destroyer/Idle.png" id="5_k6nil"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u6c8g"]
+font = ExtResource("2_unkhe")
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euubl"]
+atlas = ExtResource("4_508tf")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekrfq"]
+atlas = ExtResource("4_508tf")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kybx4"]
+atlas = ExtResource("4_508tf")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcpkx"]
+atlas = ExtResource("4_508tf")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndnlx"]
+atlas = ExtResource("4_508tf")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo4ip"]
+atlas = ExtResource("4_508tf")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb4jx"]
+atlas = ExtResource("4_508tf")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvxgl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euubl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekrfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kybx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcpkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndnlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo4ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb4jx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgskr"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqupv"]
+atlas = ExtResource("5_k6nil")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_funw0"]
+atlas = ExtResource("5_k6nil")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vkv6"]
+atlas = ExtResource("5_k6nil")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfmyj"]
+atlas = ExtResource("5_k6nil")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soc4n"]
+atlas = ExtResource("5_k6nil")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kid6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqupv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_funw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vkv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfmyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soc4n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="CharacterSelect" type="Node2D"]
+script = ExtResource("1_gkbc0")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 383.0
+offset_top = 21.0
+offset_right = 744.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Choose your Character"
+label_settings = SubResource("LabelSettings_u6c8g")
+
+[node name="HumanLabel" type="Label" parent="."]
+offset_left = 319.0
+offset_top = 369.0
+offset_right = 517.0
+offset_bottom = 427.0
+theme_override_fonts/font = ExtResource("2_unkhe")
+theme_override_font_sizes/font_size = 24
+text = "Vesper Cogsworth"
+
+[node name="RobotLabel" type="Label" parent="."]
+offset_left = 727.0
+offset_top = 375.0
+offset_right = 807.0
+offset_bottom = 433.0
+theme_override_fonts/font = ExtResource("2_unkhe")
+theme_override_font_sizes/font_size = 24
+text = "B.O.L.T "
+
+[node name="Human" type="AnimatedSprite2D" parent="."]
+position = Vector2(423, 288)
+scale = Vector2(4.43125, 4.39844)
+sprite_frames = SubResource("SpriteFrames_vvxgl")
+animation = &"idle"
+
+[node name="HumanButton" type="Button" parent="Human"]
+modulate = Color(1, 1, 1, 0.0784314)
+offset_left = -14.0
+offset_top = -17.0
+offset_right = 11.0
+offset_bottom = 18.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgskr")
+
+[node name="Robot" type="AnimatedSprite2D" parent="."]
+position = Vector2(751, 247)
+scale = Vector2(1.85156, 1.76953)
+sprite_frames = SubResource("SpriteFrames_kid6e")
+animation = &"idle"
+
+[node name="RobotButton" type="Button" parent="Robot"]
+modulate = Color(1, 1, 1, 0.0784314)
+offset_left = -25.0
+offset_top = -15.0
+offset_right = 32.0
+offset_bottom = 66.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgskr")
+
+[connection signal="pressed" from="Human/HumanButton" to="." method="_on_human_button_pressed"]
+[connection signal="pressed" from="Robot/RobotButton" to="." method="_on_robot_button_pressed"]

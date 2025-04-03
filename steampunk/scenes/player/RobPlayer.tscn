@@ -1,74 +1,55 @@
-[gd_scene load_steps=16 format=3 uid="uid://m8mum727x572"]
+[gd_scene load_steps=14 format=3 uid="uid://cfvdeapgk70j4"]
 
-[ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_fxw60"]
-[ext_resource type="Texture2D" uid="uid://dcgmue0elvjc4" path="res://assests/player/Mechanic Mike/idle.png" id="2_e4012"]
-[ext_resource type="PackedScene" uid="uid://b61fqprehb51a" path="res://scenes/player/weapons/Gun.tscn" id="3_28upd"]
-[ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="4_enpdn"]
+[ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_g1kf2"]
+[ext_resource type="Texture2D" uid="uid://8a1a130rfxiy" path="res://assests/player/Destroyer/Idle.png" id="2_6mv8k"]
+[ext_resource type="PackedScene" uid="uid://b61fqprehb51a" path="res://scenes/player/weapons/Gun.tscn" id="3_k2y8i"]
+[ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_js2dr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sdtij"]
-atlas = ExtResource("2_e4012")
-region = Rect2(0, 0, 80, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8do58"]
+atlas = ExtResource("2_6mv8k")
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mpocy"]
-atlas = ExtResource("2_e4012")
-region = Rect2(80, 0, 80, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_87dlt"]
+atlas = ExtResource("2_6mv8k")
+region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_br86q"]
-atlas = ExtResource("2_e4012")
-region = Rect2(160, 0, 80, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekxrt"]
+atlas = ExtResource("2_6mv8k")
+region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r18vh"]
-atlas = ExtResource("2_e4012")
-region = Rect2(240, 0, 80, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_elfuu"]
+atlas = ExtResource("2_6mv8k")
+region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m50b1"]
-atlas = ExtResource("2_e4012")
-region = Rect2(320, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0m7u"]
-atlas = ExtResource("2_e4012")
-region = Rect2(400, 0, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jubkm"]
-atlas = ExtResource("2_e4012")
-region = Rect2(480, 0, 80, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vark8"]
+atlas = ExtResource("2_6mv8k")
+region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7b38p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sdtij")
+"texture": SubResource("AtlasTexture_8do58")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mpocy")
+"texture": SubResource("AtlasTexture_87dlt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_br86q")
+"texture": SubResource("AtlasTexture_ekxrt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r18vh")
+"texture": SubResource("AtlasTexture_elfuu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m50b1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a0m7u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jubkm")
+"texture": SubResource("AtlasTexture_vark8")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lku4a"]
-radius = 14.0357
+radius = 20.2237
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wi4qs"]
 radius = 72.1734
@@ -100,13 +81,14 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[node name="HumanPlayer" type="CharacterBody2D" groups=["hero"]]
+[node name="RobotPlayer" type="CharacterBody2D" groups=["hero"]]
 position = Vector2(568, 281)
-script = ExtResource("1_fxw60")
+script = ExtResource("1_g1kf2")
 ability_texture = "double_jump"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, 10)
+position = Vector2(-2, 3)
+scale = Vector2(0.617188, 0.46875)
 sprite_frames = SubResource("SpriteFrames_7b38p")
 animation = &"idle"
 
@@ -115,6 +97,7 @@ position = Vector2(0, 14)
 shape = SubResource("CircleShape2D_lku4a")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 19)
@@ -131,12 +114,17 @@ limit_smoothed = true
 [node name="ScreenShaker" type="Node" parent="Camera2D"]
 script = SubResource("GDScript_okl78")
 
-[node name="Gun" parent="." instance=ExtResource("3_28upd")]
+[node name="Gun" parent="." instance=ExtResource("3_k2y8i")]
 position = Vector2(1, 19)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="Hud" parent="CanvasLayer" instance=ExtResource("4_enpdn")]
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("5_js2dr")]
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 5.0
+offset_bottom = 3.0
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 

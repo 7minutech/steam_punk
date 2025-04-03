@@ -1,14 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://5nda5jidrllv"]
+[gd_scene load_steps=6 format=3 uid="uid://5nda5jidrllv"]
 
 [ext_resource type="Texture2D" uid="uid://c1x8nbug8ygfr" path="res://assests/backgrounds/level_2.png" id="1_hxdyr"]
-[ext_resource type="Script" path="res://scripts/main/level_2.gd" id="1_vmirx"]
+[ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_ujakn"]
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_b42g2"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_ouppg"]
-[ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="4_hojty"]
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_eid6c"]
 
 [node name="Level_2" type="Node2D"]
-script = ExtResource("1_vmirx")
+script = ExtResource("1_ujakn")
 
 [node name="Level1Background" type="Sprite2D" parent="."]
 position = Vector2(576, 323.5)
@@ -42,18 +41,6 @@ position = Vector2(729, 382)
 
 [node name="dissapearing_platforms3" parent="." instance=ExtResource("3_ouppg")]
 position = Vector2(872, 337)
-
-[node name="HumanPlayer" parent="." instance=ExtResource("4_hojty")]
-position = Vector2(128, 410)
-gravity = true
-
-[node name="Camera2D2" type="Camera2D" parent="HumanPlayer"]
-visible = false
-zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 1150
-limit_bottom = 650
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

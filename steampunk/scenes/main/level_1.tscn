@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfnn2e6colnha"]
+[gd_scene load_steps=7 format=3 uid="uid://cfnn2e6colnha"]
 
 [ext_resource type="Texture2D" uid="uid://cvwruj6f6ke13" path="res://assests/backgrounds/level_1.png" id="1_16ts0"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_ocmnv"]
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_62gxx"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_byipa"]
-[ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="4_meirw"]
 [ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="6_rbiq4"]
 [ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="7_y5t4f"]
 
@@ -15,17 +14,6 @@ script = ExtResource("1_ocmnv")
 position = Vector2(576, 323.5)
 scale = Vector2(0.765333, 1.282)
 texture = ExtResource("1_16ts0")
-
-[node name="HumanPlayer" parent="." instance=ExtResource("4_meirw")]
-position = Vector2(56, 465)
-gravity = true
-
-[node name="Camera2D2" type="Camera2D" parent="HumanPlayer"]
-zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 1150
-limit_bottom = 650
 
 [node name="Platform" parent="." instance=ExtResource("2_62gxx")]
 position = Vector2(165, 545)

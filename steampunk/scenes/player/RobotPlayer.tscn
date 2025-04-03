@@ -85,7 +85,6 @@ func _process(delta: float) -> void:
 position = Vector2(568, 281)
 collision_layer = 2
 script = ExtResource("1_50lyx")
-gravity = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
