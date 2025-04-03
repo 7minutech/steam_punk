@@ -16,6 +16,17 @@ position = Vector2(576, 323.5)
 scale = Vector2(0.765333, 1.282)
 texture = ExtResource("1_16ts0")
 
+[node name="HumanPlayer" parent="." instance=ExtResource("4_meirw")]
+position = Vector2(56, 465)
+gravity = true
+
+[node name="Camera2D2" type="Camera2D" parent="HumanPlayer"]
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 1150
+limit_bottom = 650
+
 [node name="Platform" parent="." instance=ExtResource("2_62gxx")]
 position = Vector2(165, 545)
 scale = Vector2(2, 2)
@@ -43,17 +54,6 @@ position = Vector2(729, 382)
 
 [node name="dissapearing_platforms3" parent="." instance=ExtResource("3_byipa")]
 position = Vector2(872, 337)
-
-[node name="HumanPlayer" parent="." instance=ExtResource("4_meirw")]
-position = Vector2(56, 465)
-gravity = true
-
-[node name="Camera2D2" type="Camera2D" parent="HumanPlayer"]
-zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 1150
-limit_bottom = 650
 
 [node name="FlyingEnemy" parent="." instance=ExtResource("6_rbiq4")]
 position = Vector2(451, 324)

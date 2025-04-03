@@ -11,6 +11,7 @@ size = Vector2(88, 12)
 
 [node name="dissapearing_platforms" type="AnimatableBody2D"]
 script = ExtResource("1_4a2wx")
+time_to_disappear = 0.5
 
 [node name="sprite2d" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -22,7 +23,7 @@ region_rect = Rect2(0, 48, 48, 9)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nqttb")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="DisapperTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -32,5 +33,9 @@ position = Vector2(0, -29)
 position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_8nkk6")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="AppearTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DisapperTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DisapperTimer" to="." method="_on_disapper_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="AppearTimer" to="." method="_on_appear_timer_timeout"]
