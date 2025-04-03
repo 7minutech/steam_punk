@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxnkpr7jelnkc"]
+
+[ext_resource type="Script" path="res://scripts/object/shake_tween.gd" id="1_dfs1q"]
+
+[node name="ShakeTween" type="Node"]
+script = ExtResource("1_dfs1q")
+pivot_below = null

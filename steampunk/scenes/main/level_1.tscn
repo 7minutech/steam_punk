@@ -43,7 +43,7 @@ scale = Vector2(2, 2)
 collision_layer = 3
 
 [node name="Platform2" parent="." instance=ExtResource("2_62gxx")]
-position = Vector2(317, 519)
+position = Vector2(342, 536)
 scale = Vector2(2, 2)
 
 [node name="dissapearing_platforms2" parent="." instance=ExtResource("3_byipa")]

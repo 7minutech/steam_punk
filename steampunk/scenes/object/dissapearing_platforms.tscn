@@ -1,39 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://15knvok220q0"]
+[gd_scene load_steps=8 format=3 uid="uid://15knvok220q0"]
 
 [ext_resource type="Script" path="res://scripts/object/dissapearing_platforms.gd" id="1_4a2wx"]
-[ext_resource type="Texture2D" uid="uid://by5mfbj1gtfxm" path="res://platforms.png" id="1_crfpi"]
+[ext_resource type="Texture2D" uid="uid://bki6nq3qe87w3" path="res://assests/objects/platform.png" id="2_82rcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqttb"]
-size = Vector2(90, 12)
+size = Vector2(79, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nkk6"]
-size = Vector2(88, 12)
+size = Vector2(81.5, 19.75)
+
+[sub_resource type="Animation" id="Animation_6a8ex"]
+resource_name = "shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0, 0.0872665]
+}
+
+[sub_resource type="Animation" id="Animation_qc51j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lop7l"]
+_data = {
+"RESET": SubResource("Animation_qc51j"),
+"shake": SubResource("Animation_6a8ex")
+}
 
 [node name="dissapearing_platforms" type="AnimatableBody2D"]
 script = ExtResource("1_4a2wx")
 time_to_disappear = 0.5
 
-[node name="sprite2d" type="Sprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(1.875, 1.38889)
-texture = ExtResource("1_crfpi")
-region_enabled = true
-region_rect = Rect2(0, 48, 48, 9)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.5, -2.5)
+scale = Vector2(0.131667, 0.075)
+texture = ExtResource("2_82rcq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_nqttb")
 
 [node name="DisapperTimer" type="Timer" parent="."]
+wait_time = 0.6
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 28)
+position = Vector2(0.25, 29.125)
 shape = SubResource("RectangleShape2D_8nkk6")
 
 [node name="AppearTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lop7l")
+}
 
 [connection signal="timeout" from="DisapperTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DisapperTimer" to="." method="_on_disapper_timer_timeout"]
