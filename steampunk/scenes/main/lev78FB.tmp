@@ -45,6 +45,7 @@ position = Vector2(729, 382)
 position = Vector2(872, 337)
 
 [node name="HumanPlayer" parent="." instance=ExtResource("4_meirw")]
+visible = true
 position = Vector2(56, 465)
 gravity = true
 

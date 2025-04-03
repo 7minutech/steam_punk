@@ -108,11 +108,15 @@ offset_bottom = 27.0
 script = ExtResource("5_qmsl3")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 601.0
-offset_right = 269.0
-offset_bottom = 641.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -56.0
+offset_right = 280.0
+offset_bottom = -16.0
+grow_vertical = 0
 nine_patch_stretch = true
 texture_under = ExtResource("6_njloe")
 texture_progress = ExtResource("7_27m2i")

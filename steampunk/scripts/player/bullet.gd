@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Bullet
+
 @export var speed = 1500
 @export var laser: bool = false
 @export var water:bool = false

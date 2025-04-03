@@ -11,17 +11,15 @@ var invincbility: bool = false
 var running: bool = false
 var idling: bool = false
 var lives: int = 3
+var current_gun: String
 @onready var player_hud: Hud = $CanvasLayer/Hud
 @export_enum("yellow_gun","green_gun","blue_rifle","blue_gun","ant_shotgun","ant_gun") var gun_sprite: String
 @export_enum("yellow_gun","green_gun","blue_rifle","blue_gun","ant_shotgun","ant_gun") var gun_texture: String
 @export_enum("double_jump","grappling_hook","wings") var ability_texture: String
 func _ready() 	-> void:
-	swap_gun_sprite(gun_sprite)
-	print(player_hud)
+	swap_gun("No gun")
 	if player_hud != null:
 		set_ability_ui(ability_texture)
-		set_weapon_ui(gun_texture)
-	
 	Global.player = self
 	HealthObserver.player = self
 	HealthObserver.update_current_health(health)
@@ -117,19 +115,25 @@ func swap_gun_sprite(name: String):
 	match name:
 		"yellow_gun":
 			$Gun.texture = load("res://assests/player/yellow_gun.png")
+			current_gun = "yellow_gun"
 		"green_gun":
 			$Gun.texture = load("res://assests/player/green_gun.png")
+			current_gun = "green_gun"
 		"blue_rifle":
 			$Gun.texture = load("res://assests/player/blue_rifle.png")
+			current_gun = "blue_rifle"
 		"blue_gun":
 			$Gun.texture = load("res://assests/player/blue_gun.png")
+			current_gun = "blue_gun"
 		"ant_shotgun":
 			$Gun.texture = load("res://assests/player/ant_shotgun.png")
+			current_gun = "ant_shotgun"
 		"ant_gun":
 			$Gun.texture = load("res://assests/player/ant_gun.png")
+			current_gun = "ant_gun"
 		_:
 			$Gun.texture = load("res://assests/player/sGun.png")
-			
+			current_gun = "basic_gun"
 func set_ability_ui(ability: String):
 	var ability_texture: TextureRect = player_hud.get_node("Ability_Texture")
 	match ability:
@@ -155,7 +159,7 @@ func set_weapon_ui(weapon: String):
 			player_hud.weapon_label.text = "Oakley"
 		"blue_rifle":
 			weapon_texture.texture = load("res://assests/player/blue_rifle.png")
-			player_hud.weapon_label.text = "Oz"
+			player_hud.weapon_label.text = "OZ"
 		"blue_gun":
 			weapon_texture.texture = load("res://assests/player/blue_gun.png")
 			player_hud.weapon_label.text = "Neptune"
@@ -169,3 +173,7 @@ func set_weapon_ui(weapon: String):
 			weapon_texture.texture = load("res://assests/player/sGun.png")
 			player_hud.weapon_label.text = "Bronco"
 	pass
+
+func swap_gun(name: String):
+	set_weapon_ui(name)
+	swap_gun_sprite(name)

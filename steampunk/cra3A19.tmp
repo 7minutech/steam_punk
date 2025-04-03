@@ -7,7 +7,7 @@
 size = Vector2(18, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8ku7"]
-size = Vector2(22, 18)
+size = Vector2(20, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cn151"]
 radius = 19.105
@@ -34,7 +34,5 @@ shape = SubResource("RectangleShape2D_o8ku7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickRange"]
 shape = SubResource("CircleShape2D_cn151")
 
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_shape_entered" from="Hitbox" to="." method="_on_hitbox_area_shape_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="PickRange" to="." method="_on_pick_range_body_entered"]

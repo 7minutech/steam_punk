@@ -11,6 +11,7 @@ size = Vector2(22, 8)
 size = Vector2(22, 8)
 
 [node name="Bullet" type="Area2D"]
+collision_layer = 3
 script = ExtResource("1_xqhhu")
 water = true
 

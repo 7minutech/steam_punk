@@ -23,6 +23,7 @@ KillObserver="*res://scripts/global/KillObserver.gd"
 HealthObserver="*res://scripts/global/HealthObserver.gd"
 SignalBus="*res://scripts/global/SignalBus.gd"
 Transition="*res://scenes/hud/transition.tscn"
+GunObserver="*res://scripts/global/GunObserver.gd"
 
 [input]
 
