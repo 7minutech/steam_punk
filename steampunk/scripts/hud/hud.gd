@@ -3,6 +3,8 @@ class_name Hud
 @export var kill_label: Label
 @export var kill_count_label: Label
 @export var life_count_label: Label
+@export var ability_label: Label
+@export var weapon_label: Label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	KillObserver.hud = self
@@ -32,3 +34,9 @@ func update_kill(count: int):
 	elif count < 49:
 		kill_label.text = "Decent. Don’t get cocky!"
 	pass
+
+func set_hud_to_player():
+	var player: Player = get_parent().get_parent()
+	player.player_hud = self
+
+	

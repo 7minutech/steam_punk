@@ -105,7 +105,9 @@ func _process(delta: float) -> void:
 position = Vector2(568, 281)
 script = ExtResource("1_fxw60")
 gravity = false
-gun_sprite = "green_gun"
+gun_sprite = "yellow_gun"
+gun_texture = "yellow_gun"
+ability_texture = "double_jump"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 10)

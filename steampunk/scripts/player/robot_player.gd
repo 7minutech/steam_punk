@@ -11,9 +11,17 @@ var invincbility: bool = false
 var running: bool = false
 var idling: bool = false
 var lives: int = 3
+@onready var player_hud: Hud = $CanvasLayer/Hud
 @export_enum("yellow_gun","green_gun","blue_rifle","blue_gun","ant_shotgun","ant_gun") var gun_sprite: String
+@export_enum("yellow_gun","green_gun","blue_rifle","blue_gun","ant_shotgun","ant_gun") var gun_texture: String
+@export_enum("double_jump","grappling_hook","wings") var ability_texture: String
 func _ready() 	-> void:
 	swap_gun_sprite(gun_sprite)
+	print(player_hud)
+	if player_hud != null:
+		set_ability_ui(ability_texture)
+		set_weapon_ui(gun_texture)
+	
 	Global.player = self
 	HealthObserver.player = self
 	HealthObserver.update_current_health(health)
@@ -122,3 +130,42 @@ func swap_gun_sprite(name: String):
 		_:
 			$Gun.texture = load("res://assests/player/sGun.png")
 			
+func set_ability_ui(ability: String):
+	var ability_texture: TextureRect = player_hud.get_node("Ability_Texture")
+	match ability:
+		"double_jump":
+			ability_texture.texture = load("res://assests/ability/double_jump.png")
+			player_hud.ability_label.text = "Double Jump"
+		"grappling_hook":
+			ability_texture.texture = load("res://assests/ability/grappling_hook.png")
+			player_hud.ability_label.text = "Grappling Hook"
+		"wings":
+			ability_texture.texture = load("res://assests/ability/wings.png")
+			player_hud.ability_label.text = "Wings"
+	pass
+	
+func set_weapon_ui(weapon: String):
+	var weapon_texture: TextureRect = player_hud.get_node("Weapon_Texture")
+	match weapon:
+		"yellow_gun":
+			weapon_texture.texture = load("res://assests/player/yellow_gun.png")
+			player_hud.weapon_label.text = "King Harley"
+		"green_gun":
+			weapon_texture.texture = load("res://assests/player/green_gun.png")
+			player_hud.weapon_label.text = "Oakley"
+		"blue_rifle":
+			weapon_texture.texture = load("res://assests/player/blue_rifle.png")
+			player_hud.weapon_label.text = "Oz"
+		"blue_gun":
+			weapon_texture.texture = load("res://assests/player/blue_gun.png")
+			player_hud.weapon_label.text = "Neptune"
+		"ant_shotgun":
+			weapon_texture.texture = load("res://assests/player/ant_shotgun.png")
+			player_hud.weapon_label.text = "Big Lenny"
+		"ant_gun":
+			weapon_texture.texture = load("res://assests/player/ant_gun.png")
+			player_hud.weapon_label.text = "Ant Storm"
+		_:
+			weapon_texture.texture = load("res://assests/player/sGun.png")
+			player_hud.weapon_label.text = "Bronco"
+	pass
