@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cte67r4alg6k"]
+[gd_scene load_steps=8 format=3 uid="uid://cte67r4alg6k"]
 
 [ext_resource type="Script" path="res://scripts/main/level_4.gd" id="1_04edr"]
 [ext_resource type="Texture2D" uid="uid://1c5o1uuy7b6l" path="res://assests/backgrounds/level_4.png" id="1_esbpe"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_aifqp"]
 [ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="4_j53go"]
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_kdclw"]
+[ext_resource type="AudioStream" uid="uid://hpecd4onx2c2" path="res://assests/sounds/level_music/Alexander Ehlers - Great mission.mp3" id="7_telax"]
 
 [node name="Level_4" type="Node2D"]
 script = ExtResource("1_04edr")
@@ -45,7 +46,6 @@ position = Vector2(872, 337)
 
 [node name="HumanPlayer" parent="." instance=ExtResource("4_j53go")]
 position = Vector2(193, 400)
-gravity = true
 
 [node name="Camera2D2" type="Camera2D" parent="HumanPlayer"]
 visible = false
@@ -62,3 +62,7 @@ visible = false
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(139, 455)
+
+[node name="LevelMusic4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_telax")
+volume_db = -32.0

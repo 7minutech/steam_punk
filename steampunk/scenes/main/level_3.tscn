@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://lqam4eox54e1"]
+[gd_scene load_steps=10 format=3 uid="uid://lqam4eox54e1"]
 
 [ext_resource type="Texture2D" uid="uid://2jxbrwqy2rfe" path="res://assests/backgrounds/level_3.png" id="1_mo1pe"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_p2bv6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_c5k47"]
 [ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="6_ju7c2"]
 [ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="7_34moo"]
+[ext_resource type="AudioStream" uid="uid://wlkyc5bs7fqo" path="res://assests/sounds/level_music/Alexander Ehlers - Spacetime.mp3" id="8_np1f0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgewb"]
 size = Vector2(584.5, 15)
@@ -257,3 +258,7 @@ position = Vector2(730, 429)
 
 [node name="FlyingEnemy6" parent="." instance=ExtResource("7_34moo")]
 position = Vector2(451, 506)
+
+[node name="LevelMusic3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_np1f0")
+volume_db = -32.0
