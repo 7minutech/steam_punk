@@ -26,13 +26,14 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	if chasing_player:
-		hover_over_player()
-	flip()
-	if player_in_atk_range():
-		var gear_instace = gear_bullet.instantiate()
-		gear_instace.global_position = self.global_position  
-		get_tree().current_scene.add_child(gear_instace)  
+	if Global.player != null:
+		if chasing_player:
+			hover_over_player()
+		flip()
+		if player_in_atk_range():
+			var gear_instace = gear_bullet.instantiate()
+			gear_instace.global_position = self.global_position  
+			get_tree().current_scene.add_child(gear_instace)  
 		
 func flying_enemy():
 	pass
@@ -41,10 +42,11 @@ func enemy():
 	pass
 
 func flip():
-	if Global.player.position.x < position.x:
-		$AnimatedSprite2D.flip_h = true
-	else:
-		$AnimatedSprite2D.flip_h = false
+	if Global.player != null:
+		if Global.player.position.x < position.x:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
 
 func hover_over_player():
 	var height_distance = 85

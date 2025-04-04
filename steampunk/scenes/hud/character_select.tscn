@@ -1,10 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://cr5pt7hwgfn6e"]
+[gd_scene load_steps=24 format=3 uid="uid://cr5pt7hwgfn6e"]
 
 [ext_resource type="Script" path="res://scripts/hud/character_select.gd" id="1_gkbc0"]
 [ext_resource type="Texture2D" uid="uid://c6nvtuc2xlpvp" path="res://assests/backgrounds/start_screen.png" id="2_r6lma"]
 [ext_resource type="FontFile" uid="uid://08j1ebqqxj8f" path="res://assests/fonts/Steam Punk Flyer.ttf" id="2_unkhe"]
 [ext_resource type="Texture2D" uid="uid://dcgmue0elvjc4" path="res://assests/player/Mechanic Mike/idle.png" id="4_508tf"]
 [ext_resource type="Texture2D" uid="uid://8a1a130rfxiy" path="res://assests/player/Destroyer/Idle.png" id="5_k6nil"]
+[ext_resource type="AudioStream" uid="uid://beyf11r75ymf4" path="res://assests/sounds/mixkit-retro-arcade-casino-notification-211.mp3" id="6_dbtef"]
+[ext_resource type="AudioStream" uid="uid://2tf8r0aycdyi" path="res://assests/sounds/Alexander Ehlers - Warped.mp3" id="7_hgr6d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u6c8g"]
 font = ExtResource("2_unkhe")
@@ -123,7 +125,7 @@ script = ExtResource("1_gkbc0")
 
 [node name="StartScreen" type="Sprite2D" parent="."]
 position = Vector2(576.5, 325)
-scale = Vector2(1.92833, 1.07333)
+scale = Vector2(2, 1.113)
 texture = ExtResource("2_r6lma")
 
 [node name="Label" type="Label" parent="."]
@@ -186,6 +188,14 @@ offset_top = -15.0
 offset_right = 32.0
 offset_bottom = 66.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_qgskr")
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dbtef")
+volume_db = 10.0
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_hgr6d")
+volume_db = -10.0
 
 [connection signal="pressed" from="Human/HumanButton" to="." method="_on_human_button_pressed"]
 [connection signal="pressed" from="Robot/RobotButton" to="." method="_on_robot_button_pressed"]

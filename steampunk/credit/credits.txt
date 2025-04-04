@@ -45,3 +45,6 @@ ASSETS
 	
 - Controls
 	- https://adamgamer1111.itch.io/keyboard-and-controller-icons
+- Sounds
+ - https://mixkit.co/free-sound-effects/
+- https://pixabay.com/sound-effects/

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bb7oq6olk6sqm"]
+[gd_scene load_steps=18 format=3 uid="uid://bb7oq6olk6sqm"]
 
 [ext_resource type="Script" path="res://scenes/hud/controls.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://c6nvtuc2xlpvp" path="res://assests/backgrounds/start_screen.png" id="2"]
@@ -10,9 +10,28 @@
 [ext_resource type="Texture2D" uid="uid://hit1q3p5uxec" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/A.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://r4133gitgxyr" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/S.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://cp6mxruln2l4n" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/D button.png" id="10"]
-[ext_resource type="AudioStream" uid="uid://dkdurtqm52s42" path="res://assests/sounds/rclick-13693.mp3" id="11"]
+[ext_resource type="AudioStream" uid="uid://beyf11r75ymf4" path="res://assests/sounds/mixkit-retro-arcade-casino-notification-211.mp3" id="11_s4tf1"]
+[ext_resource type="AudioStream" uid="uid://2tf8r0aycdyi" path="res://assests/sounds/Alexander Ehlers - Warped.mp3" id="12_x8r0n"]
 
-[sub_resource type="AtlasTexture" id="1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxj5h"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwk0h"]
+atlas = ExtResource("4")
+region = Rect2(200, 0, 200, 225)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdi3p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwk0h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7biq"]
 atlas = ExtResource("4")
 region = Rect2(400, 0, 200, 225)
 
@@ -20,10 +39,10 @@ region = Rect2(400, 0, 200, 225)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("1")
+"texture": SubResource("AtlasTexture_x7biq")
 }],
 "loop": true,
-"name": &"default",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -32,7 +51,7 @@ script = ExtResource("1")
 
 [node name="StartScreen" type="Sprite2D" parent="."]
 position = Vector2(576.5, 325)
-scale = Vector2(1.915, 1.08667)
+scale = Vector2(2, 1.135)
 texture = ExtResource("2")
 
 [node name="Button" type="Button" parent="."]
@@ -41,6 +60,7 @@ offset_top = 488.0
 offset_right = 619.0
 offset_bottom = 537.0
 theme_override_fonts/font = ExtResource("3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pxj5h")
 text = "OK"
 
 [node name="Label" type="Label" parent="."]
@@ -52,9 +72,9 @@ text = "Shoot"
 label_settings = ExtResource("6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Label"]
-position = Vector2(106, 12)
-scale = Vector2(0.525, 0.477778)
-sprite_frames = SubResource("2")
+position = Vector2(160, 24)
+scale = Vector2(0.59, 0.498889)
+sprite_frames = SubResource("SpriteFrames_kdi3p")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 432.0
@@ -68,6 +88,7 @@ label_settings = ExtResource("6")
 position = Vector2(189, 17)
 scale = Vector2(0.525, 0.477778)
 sprite_frames = SubResource("2")
+animation = &"new_animation"
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 444.0
@@ -90,7 +111,7 @@ text = "Movement"
 label_settings = ExtResource("6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Movement"]
-position = Vector2(223, -5)
+position = Vector2(220, -5)
 texture = ExtResource("5")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Movement"]
@@ -106,7 +127,11 @@ position = Vector2(295, 54)
 texture = ExtResource("10")
 
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11")
+stream = ExtResource("11_s4tf1")
 volume_db = 5.0
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_x8r0n")
+volume_db = -10.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

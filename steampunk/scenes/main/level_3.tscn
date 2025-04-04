@@ -259,6 +259,7 @@ position = Vector2(730, 429)
 [node name="FlyingEnemy6" parent="." instance=ExtResource("7_34moo")]
 position = Vector2(451, 506)
 
-[node name="LevelMusic3" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_np1f0")
-volume_db = -32.0
+volume_db = -15.0
+parameters/looping = true

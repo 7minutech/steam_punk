@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5q8inb37mljl"]
+[gd_scene load_steps=9 format=3 uid="uid://c5q8inb37mljl"]
 
 [ext_resource type="Script" path="res://scripts/hud/start_screen.gd" id="1_0xeip"]
 [ext_resource type="FontFile" uid="uid://08j1ebqqxj8f" path="res://assests/fonts/Steam Punk Flyer.ttf" id="1_bj320"]
 [ext_resource type="Texture2D" uid="uid://c6nvtuc2xlpvp" path="res://assests/backgrounds/start_screen.png" id="2_smonl"]
+[ext_resource type="AudioStream" uid="uid://beyf11r75ymf4" path="res://assests/sounds/mixkit-retro-arcade-casino-notification-211.mp3" id="4_m2qtc"]
+[ext_resource type="AudioStream" uid="uid://2tf8r0aycdyi" path="res://assests/sounds/Alexander Ehlers - Warped.mp3" id="5_d2r8y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nyo50"]
 font = ExtResource("1_bj320")
 font_size = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqt8l"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5n2be"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="StartScreen" type="Node2D"]
 position = Vector2(576, 64)
@@ -14,7 +22,7 @@ script = ExtResource("1_0xeip")
 
 [node name="StartScreen" type="Sprite2D" parent="."]
 position = Vector2(-0.5, 259)
-scale = Vector2(1.90833, 1.07667)
+scale = Vector2(2, 1.13)
 texture = ExtResource("2_smonl")
 
 [node name="Title" type="Label" parent="."]
@@ -34,17 +42,27 @@ offset_top = 160.0
 offset_right = 35.0
 offset_bottom = 224.0
 theme_override_fonts/font = ExtResource("1_bj320")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqt8l")
 text = "Start Game"
 metadata/_edit_use_anchors_ = true
 
 [node name="ExitButton" type="Button" parent="."]
-offset_left = -88.0
-offset_top = 258.0
-offset_right = 40.0
-offset_bottom = 322.0
+offset_left = -92.0
+offset_top = 259.0
+offset_right = 36.0
+offset_bottom = 323.0
 theme_override_fonts/font = ExtResource("1_bj320")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5n2be")
 text = "Exit Game"
 metadata/_edit_use_anchors_ = true
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_m2qtc")
+volume_db = 10.0
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_d2r8y")
+volume_db = -10.0
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfvdeapgk70j4"]
+[gd_scene load_steps=24 format=3 uid="uid://cfvdeapgk70j4"]
 
 [ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_g1kf2"]
 [ext_resource type="Texture2D" uid="uid://8a1a130rfxiy" path="res://assests/player/Destroyer/Idle.png" id="2_6mv8k"]
 [ext_resource type="PackedScene" uid="uid://b61fqprehb51a" path="res://scenes/player/weapons/Gun.tscn" id="3_k2y8i"]
+[ext_resource type="Texture2D" uid="uid://bmwvv6ugx7rr2" path="res://assests/player/Destroyer/Walk.png" id="3_wkuuh"]
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_js2dr"]
+[ext_resource type="AudioStream" uid="uid://ga87ku81rqwb" path="res://assests/sounds/footsteps-stairs-slow-106711.mp3" id="6_kftnt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8do58"]
 atlas = ExtResource("2_6mv8k")
@@ -24,6 +26,38 @@ region = Rect2(384, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vark8"]
 atlas = ExtResource("2_6mv8k")
 region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fim2"]
+atlas = ExtResource("3_wkuuh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36gql"]
+atlas = ExtResource("3_wkuuh")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjs1k"]
+atlas = ExtResource("3_wkuuh")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndwr8"]
+atlas = ExtResource("3_wkuuh")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lawv"]
+atlas = ExtResource("3_wkuuh")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx6rx"]
+atlas = ExtResource("3_wkuuh")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uf7n"]
+atlas = ExtResource("3_wkuuh")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngp85"]
+atlas = ExtResource("3_wkuuh")
+region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7b38p"]
 animations = [{
@@ -46,10 +80,39 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fim2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36gql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjs1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndwr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lawv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx6rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uf7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngp85")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lku4a"]
-radius = 17.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80je0"]
+size = Vector2(8, 35)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wi4qs"]
 radius = 72.1734
@@ -91,11 +154,11 @@ ability_texture = "Jump Boost"
 position = Vector2(-2, 3)
 scale = Vector2(0.617188, 0.46875)
 sprite_frames = SubResource("SpriteFrames_7b38p")
-animation = &"idle"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 14)
-shape = SubResource("CircleShape2D_lku4a")
+position = Vector2(-2, 15.5)
+shape = SubResource("RectangleShape2D_80je0")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -105,8 +168,8 @@ shape = SubResource("CircleShape2D_wi4qs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-limit_left = 5
-limit_top = 0
+limit_left = 10
+limit_top = 10
 limit_right = 1150
 limit_bottom = 600
 limit_smoothed = true
@@ -120,15 +183,17 @@ position = Vector2(1, 19)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("5_js2dr")]
-offset_left = 5.0
 offset_top = 3.0
-offset_right = 5.0
 offset_bottom = 3.0
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
 [node name="JumpBoostTimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="FootSteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kftnt")
+volume_db = 10.0
 
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="timeout" from="JumpBoostTimer" to="." method="_on_jump_boost_timer_timeout"]

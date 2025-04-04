@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://m8mum727x572"]
+[gd_scene load_steps=24 format=3 uid="uid://m8mum727x572"]
 
 [ext_resource type="Script" path="res://scripts/player/robot_player.gd" id="1_fxw60"]
 [ext_resource type="Texture2D" uid="uid://dcgmue0elvjc4" path="res://assests/player/Mechanic Mike/idle.png" id="2_e4012"]
 [ext_resource type="PackedScene" uid="uid://b61fqprehb51a" path="res://scenes/player/weapons/Gun.tscn" id="3_28upd"]
+[ext_resource type="Texture2D" uid="uid://b4dtf104y0s1r" path="res://assests/player/Mechanic Mike/run.png" id="3_p4nns"]
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="4_enpdn"]
+[ext_resource type="AudioStream" uid="uid://ga87ku81rqwb" path="res://assests/sounds/footsteps-stairs-slow-106711.mp3" id="6_j0swc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdtij"]
 atlas = ExtResource("2_e4012")
@@ -33,6 +35,30 @@ region = Rect2(400, 0, 80, 64)
 atlas = ExtResource("2_e4012")
 region = Rect2(480, 0, 80, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8njuu"]
+atlas = ExtResource("3_p4nns")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po66e"]
+atlas = ExtResource("3_p4nns")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1x7s"]
+atlas = ExtResource("3_p4nns")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpduc"]
+atlas = ExtResource("3_p4nns")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tabww"]
+atlas = ExtResource("3_p4nns")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_530yb"]
+atlas = ExtResource("3_p4nns")
+region = Rect2(400, 0, 80, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_7b38p"]
 animations = [{
 "frames": [{
@@ -61,9 +87,27 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8njuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po66e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1x7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpduc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tabww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_530yb")
+}],
 "loop": true,
-"name": &"walk",
+"name": &"run",
 "speed": 5.0
 }]
 
@@ -103,13 +147,14 @@ func _process(delta: float) -> void:
 [node name="HumanPlayer" type="CharacterBody2D" groups=["hero"]]
 position = Vector2(568, 281)
 script = ExtResource("1_fxw60")
+health = 1000
 jump_cd = 3.0
 ability_texture = "Jump Boost"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 10)
 sprite_frames = SubResource("SpriteFrames_7b38p")
-animation = &"idle"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
@@ -123,8 +168,8 @@ shape = SubResource("CircleShape2D_wi4qs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-limit_left = 5
-limit_top = 5
+limit_left = 10
+limit_top = 10
 limit_right = 1150
 limit_bottom = 600
 limit_smoothed = true
@@ -142,6 +187,10 @@ position = Vector2(1, 19)
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
 [node name="JumpBoostTimer" type="Timer" parent="."]
+
+[node name="FootSteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_j0swc")
+volume_db = 10.0
 
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="timeout" from="JumpBoostTimer" to="." method="_on_jump_boost_timer_timeout"]

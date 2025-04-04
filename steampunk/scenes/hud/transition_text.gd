@@ -3,6 +3,7 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	modulate.a = 0
 	await get_tree().create_timer(1.0).timeout
 	text = Global.level_name
 	$AnimationPlayer.play("Fade")

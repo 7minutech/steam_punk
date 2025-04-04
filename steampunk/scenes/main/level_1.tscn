@@ -16,8 +16,8 @@ size = Vector2(1162, 20)
 script = ExtResource("1_ocmnv")
 
 [node name="Level1Background" type="Sprite2D" parent="."]
-position = Vector2(576, 323.5)
-scale = Vector2(0.765333, 1.282)
+position = Vector2(576, 331)
+scale = Vector2(0.765333, 1.312)
 texture = ExtResource("1_16ts0")
 
 [node name="Platform" parent="." instance=ExtResource("2_62gxx")]
@@ -158,7 +158,7 @@ position = Vector2(444, 90)
 position = Vector2(459, 356)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(66, 489)
+position = Vector2(70, 491)
 
 [node name="Platform5" parent="." instance=ExtResource("2_62gxx")]
 position = Vector2(75, 545)
@@ -174,8 +174,9 @@ position = Vector2(166, 527)
 position = Vector2(571, 0)
 shape = SubResource("RectangleShape2D_m04jg")
 
-[node name="LevelMusic1" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_b1uuc")
-volume_db = -31.0
+volume_db = -15.0
+parameters/looping = true
 
 [connection signal="player_fell_off" from="." to="." method="_on_player_fell_off"]

@@ -5,18 +5,25 @@ var player_scene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.current_name_level = self.name
+	MenuMusic.stop()
 	if self.name == "Level_1":
 		Global.level_name = "The Obsidian Foundry"
-		$LevelMusic1.play()	
+		$LevelMusic.stop()
+		await get_tree().create_timer(0.1).timeout  
+		$LevelMusic.play()	
 	elif self.name == "Level_2":
 		Global.level_name = "The Emerald Boilerworks"
-		$LevelMusic2.play()
+		$LevelMusic.stop()
+		await get_tree().create_timer(0.1).timeout  
+		$LevelMusic.play()
 	elif self.name == "Level_3":
 		Global.level_name = "The Crimson Crucible"
-		$LevelMusic3.play()
+		$LevelMusic.stop()
+		$LevelMusic.play()
 	elif self.name == "Level_4":
 		Global.level_name = "Ironspire"
-		$LevelMusic4.play()
+		$LevelMusic.stop()
+		$LevelMusic.play()
 	set_player_choosen()
 	SignalBus.player_fell_off.connect(_on_player_fell_off)
 	pass # Replace with function body.

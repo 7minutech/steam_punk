@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkahn6k1qd0b5"]
+
+[ext_resource type="AudioStream" uid="uid://2tf8r0aycdyi" path="res://assests/sounds/Alexander Ehlers - Warped.mp3" id="1_spata"]
+[ext_resource type="Script" path="res://scripts/hud/menu_music.gd" id="2_kwc1u"]
+
+[node name="MenuMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_spata")
+volume_db = -10.0
+parameters/looping = true
+script = ExtResource("2_kwc1u")

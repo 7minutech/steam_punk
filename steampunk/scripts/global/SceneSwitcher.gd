@@ -3,13 +3,17 @@ extends Node
 var current_scene = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
+	MenuMusic.play()
 
 func switch_scene(res_path):
 	call_deferred("_deferred_switch_scene", res_path)
 
 func _deferred_switch_scene(res_path):
+	if res_path == "res://scenes/main/level_1.tscn":
+		MenuMusic.stop()
 	#Transition.transition()
 	#await  Transition.on_transition_finished
 	current_scene.free()

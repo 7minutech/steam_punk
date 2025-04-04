@@ -12,5 +12,10 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
+	play_click_sound()
+	await get_tree().create_timer(0.5).timeout
 	SceneSwitcher.switch_scene("res://scenes/hud/character_select.tscn")
 	pass # Replace with function body.
+
+func play_click_sound():
+	$ButtonClick.play()

@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("player") and final:
+		var music: AudioStreamPlayer2D = get_parent().get_node("LevelMusic")
 		if Global.current_name_level == "Level_1":
 			SceneSwitcher.switch_scene("res://scenes/main/level_2.tscn")
 		elif Global.current_name_level == "Level_2":

@@ -208,8 +208,9 @@ shape = SubResource("RectangleShape2D_6dw2q")
 [node name="crate" parent="." instance=ExtResource("6_phb46")]
 position = Vector2(273, 525)
 
-[node name="LevelMusic2" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_e0dex")
-volume_db = -31.0
+volume_db = -10.0
+parameters/looping = true
 
 [connection signal="player_fell_off" from="." to="." method="_on_player_fell_off"]

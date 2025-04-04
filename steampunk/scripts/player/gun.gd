@@ -13,6 +13,7 @@ func _physics_process(delta: float) -> void:
 	look_at(mouse_position)
 	
 	if Input.is_action_pressed("fire") and can_fire:
+		$ShotSound.play()
 		var bullet_instace = bullet.instantiate()
 		bullet_instace.rotation = rotation + randf_range(-0.1,0.1)
 		bullet_instace.position = $Muzzle.position
