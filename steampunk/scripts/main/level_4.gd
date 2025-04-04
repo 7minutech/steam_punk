@@ -5,7 +5,7 @@ signal player_fell_off
 func _ready() -> void:
 	SignalBus.player_fell_off.connect(_on_player_fell_off)
 	pass # Replace with function body.
-
+	$LevelMusic4.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

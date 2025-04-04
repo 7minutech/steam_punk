@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfnn2e6colnha"]
+[gd_scene load_steps=10 format=3 uid="uid://cfnn2e6colnha"]
 
 [ext_resource type="Texture2D" uid="uid://cvwruj6f6ke13" path="res://assests/backgrounds/level_1.png" id="1_16ts0"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_ocmnv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://e3vdltb4rk4r" path="res://scenes/enemy/CrawlerEnemy.tscn" id="6_bnfeb"]
 [ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="6_rbiq4"]
 [ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="7_y5t4f"]
+[ext_resource type="AudioStream" uid="uid://dhjrq5bq8xxo5" path="res://assests/sounds/level_music/Alexander Ehlers - Doomed.mp3" id="8_b1uuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m04jg"]
 size = Vector2(1162, 20)
@@ -172,5 +173,9 @@ position = Vector2(166, 527)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(571, 0)
 shape = SubResource("RectangleShape2D_m04jg")
+
+[node name="LevelMusic1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_b1uuc")
+volume_db = -31.0
 
 [connection signal="player_fell_off" from="." to="." method="_on_player_fell_off"]
