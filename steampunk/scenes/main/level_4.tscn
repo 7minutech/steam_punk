@@ -37,13 +37,13 @@ position = Vector2(328, 544)
 position = Vector2(152, 488)
 
 [node name="Platform6" parent="." instance=ExtResource("7_vyl82")]
-position = Vector2(336, 424)
+position = Vector2(336, 430)
 
 [node name="Platform7" parent="." instance=ExtResource("7_vyl82")]
 position = Vector2(536, 376)
 
 [node name="Platform8" parent="." instance=ExtResource("7_vyl82")]
-position = Vector2(744, 424)
+position = Vector2(744, 430)
 
 [node name="LevelMusic4" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_telax")
