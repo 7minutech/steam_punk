@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://lqam4eox54e1"]
+[gd_scene load_steps=10 format=3 uid="uid://lqam4eox54e1"]
 
 [ext_resource type="Texture2D" uid="uid://2jxbrwqy2rfe" path="res://assests/backgrounds/level_3.png" id="1_mo1pe"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_p2bv6"]
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_p6sc4"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_y5h3f"]
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_c5k47"]
+[ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="6_ju7c2"]
+[ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="7_34moo"]
+[ext_resource type="AudioStream" uid="uid://wlkyc5bs7fqo" path="res://assests/sounds/level_music/Alexander Ehlers - Spacetime.mp3" id="8_np1f0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgewb"]
+size = Vector2(584.5, 15)
 
 [node name="Level_3" type="Node2D"]
 script = ExtResource("1_p2bv6")
@@ -14,33 +20,189 @@ position = Vector2(576, 323.5)
 scale = Vector2(0.765333, 1.282)
 texture = ExtResource("1_mo1pe")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(105, 110)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(239.25, -57.5)
+shape = SubResource("RectangleShape2D_pgewb")
+
 [node name="Platform" parent="." instance=ExtResource("2_p6sc4")]
 position = Vector2(165, 545)
 scale = Vector2(2, 2)
 collision_layer = 3
 
+[node name="Platform2" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(165, 545)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform10" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(71, 545)
+scale = Vector2(2, 2)
+collision_layer = 3
+
 [node name="Platform3" parent="." instance=ExtResource("2_p6sc4")]
-position = Vector2(466, 478)
+position = Vector2(366, 454)
 scale = Vector2(2, 2)
 collision_layer = 3
 
 [node name="Platform4" parent="." instance=ExtResource("2_p6sc4")]
-position = Vector2(1000, 292)
+position = Vector2(335, 544)
 scale = Vector2(2, 2)
 collision_layer = 3
 
-[node name="Platform2" parent="." instance=ExtResource("2_p6sc4")]
-position = Vector2(317, 519)
+[node name="Platform6" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(543, 482)
 scale = Vector2(2, 2)
+collision_layer = 3
 
-[node name="dissapearing_platforms2" parent="." instance=ExtResource("3_y5h3f")]
-position = Vector2(602, 430)
+[node name="Platform7" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(493, 565)
+scale = Vector2(2, 2)
+collision_layer = 3
 
-[node name="dissapearing_platforms" parent="." instance=ExtResource("3_y5h3f")]
-position = Vector2(729, 382)
+[node name="Platform8" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(475, 418)
+scale = Vector2(2, 2)
+collision_layer = 3
 
-[node name="dissapearing_platforms3" parent="." instance=ExtResource("3_y5h3f")]
-position = Vector2(872, 337)
+[node name="Platform9" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(464, 352)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform11" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(599, 522)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform12" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(740, 465)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform13" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(709, 555)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform15" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(867, 576)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform17" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(815, 512)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform21" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(812, 406)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform18" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(1023, 450)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform19" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(973, 533)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform20" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(743, 239)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform28" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(104, 241)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform29" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(73, 331)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform31" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(231, 352)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform32" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(210, 198)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform33" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(179, 288)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform34" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(387, 226)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform35" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(337, 309)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform36" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(478, 252)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform40" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(367, 143)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform41" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(245, 113)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform22" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(920, 267)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform23" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(870, 350)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform24" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(849, 196)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform25" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(818, 286)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform26" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(1026, 224)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform27" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(976, 307)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform5" parent="." instance=ExtResource("2_p6sc4")]
+position = Vector2(105, 110)
+scale = Vector2(2, 2)
+collision_layer = 3
+final = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -48,4 +210,55 @@ visible = false
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("5_c5k47")]
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(140, 397)
+position = Vector2(69, 475)
+
+[node name="dissapearing_platforms" parent="." instance=ExtResource("3_y5h3f")]
+position = Vector2(631, 408)
+
+[node name="dissapearing_platforms7" parent="." instance=ExtResource("3_y5h3f")]
+position = Vector2(686, 160)
+
+[node name="dissapearing_platforms8" parent="." instance=ExtResource("3_y5h3f")]
+position = Vector2(499, 176)
+
+[node name="dissapearing_platforms2" parent="." instance=ExtResource("3_y5h3f")]
+position = Vector2(606, 223)
+
+[node name="dissapearing_platforms3" parent="." instance=ExtResource("3_y5h3f")]
+position = Vector2(642, 292)
+
+[node name="dissapearing_platforms4" parent="." instance=ExtResource("3_y5h3f")]
+position = Vector2(703, 376)
+
+[node name="dissapearing_platforms5" parent="." instance=ExtResource("3_y5h3f")]
+position = Vector2(566, 362)
+
+[node name="dissapearing_platforms6" parent="." instance=ExtResource("3_y5h3f")]
+position = Vector2(886, 459)
+
+[node name="crate" parent="." instance=ExtResource("6_ju7c2")]
+position = Vector2(200, 522)
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("7_34moo")]
+
+[node name="FlyingEnemy7" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(524, 66)
+
+[node name="FlyingEnemy2" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(255, 268)
+
+[node name="FlyingEnemy3" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(956, 175)
+
+[node name="FlyingEnemy4" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(1005, 378)
+
+[node name="FlyingEnemy5" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(730, 429)
+
+[node name="FlyingEnemy6" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(451, 506)
+
+[node name="LevelMusic3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_np1f0")
+volume_db = -32.0

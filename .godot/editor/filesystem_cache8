@@ -1,0 +1,54 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1743722433
+dissapearing_platforms.gd::GDScript::-1::1742242663::0::1::::<>AnimatableBody2D<>::
+dissapearing_platforms.tscn::PackedScene::1887472777568204389::1742242663::0::1::::<><>::res://dissapearing_platforms.gd<>uid://by5mfbj1gtfxm::::res://platforms.png
+icon.svg::CompressedTexture2D::1810621038680880270::1742226772::1742405078::1::::<><>::
+platform.tscn::PackedScene::-1::1742404876::0::1::::<><>::
+platforms.png::CompressedTexture2D::4133621864127075878::1742242663::1742242778::1::::<><>::
+::res://assests/::1742242663
+::res://assests/enemy/::1742242778
+Spider Sprite Sheet.png::CompressedTexture2D::2710918827558617208::1742242663::1742242778::1::::<><>::
+::res://assests/enemy/CrimsonFlyingEye/::1742242778
+Attack1.png::CompressedTexture2D::8736738737866673756::1742242663::1742242778::1::::<><>::
+Attack2.png::CompressedTexture2D::7077091042348053902::1742242663::1742242778::1::::<><>::
+Attack3.png::CompressedTexture2D::4448184517364574703::1742242663::1742242778::1::::<><>::
+Death.png::CompressedTexture2D::8317133488319240213::1742242663::1742242778::1::::<><>::
+Flight.png::CompressedTexture2D::3237869961030474722::1742242663::1742242778::1::::<><>::
+projectile_sprite.png::CompressedTexture2D::658606393639729341::1742242663::1742242778::1::::<><>::
+Take Hit.png::CompressedTexture2D::2867111916964998786::1742242663::1742242778::1::::<><>::
+::res://assests/enemy/Effect and Bullet 16x16/::1742242663
+::res://assests/enemy/Effect and Bullet 16x16/Effect and Bullet 16x16/::1742242778
+Fire Effect and Bullet 16x16.png::CompressedTexture2D::1561964769145444850::1742242663::1742242778::1::::<><>::
+Green Effect and Bullet 16x16.png::CompressedTexture2D::5917105240662893271::1742242663::1742242778::1::::<><>::
+Purple Effect and Bullet 16x16.png::CompressedTexture2D::8779685735296681851::1742242663::1742242778::1::::<><>::
+Water Effect and Bullet 16x16.png::CompressedTexture2D::6786671965807974966::1742242663::1742242778::1::::<><>::
+::res://scenes/::1742404900
+::res://scenes/character/::1743722302
+jump_ability.tscn::PackedScene::3706535384765218685::1743722302::0::1::::<><>::res://scripts/player/jump_ability.gd<>uid://02cwts0yxtg5::::res://icon.svg
+platform.tscn::PackedScene::8518219354048040074::1742242663::0::1::::<><>::uid://bri425li6n8vn::::res://icon.svg
+player.gd::GDScript::-1::1742405155::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::403331197115365939::1743722302::0::1::::<><>::uid://02cwts0yxtg5::::res://icon.svg<>res://scenes/character/player.gd
+world.tscn::PackedScene::5179808674784753010::1743722302::0::1::::<><>::uid://f0m2nuwtl7sh::::res://scenes/character/player.tscn<>uid://dtmj3fo5tr5p3::::res://scenes/character/platform.tscn<>uid://bs2qdjjhw3dib::::res://scenes/character/jump_ability.tscn
+::res://scenes/enemy/::1742242663
+CrawlerEnemy.tscn::PackedScene::339838973088619083::1742242663::0::1::::<><>::uid://bevgo4gvfbp7e::::res://assests/enemy/Spider Sprite Sheet.png<>res://scenes/enemy/crawler_enemy.gd
+crawler_enemy.gd::GDScript::-1::1742242663::0::1::::<>Node2D<>::
+enemy.tscn::PackedScene::7661961988628376185::1742242663::0::1::::<><>::
+FlyEnemy.tscn::PackedScene::4895463920692215074::1742242663::0::1::::<><>::res://scripts/enemy/fly_enemy.gd<>uid://bmepilpk38uf7::::res://assests/enemy/CrimsonFlyingEye/Flight.png
+FlyEnemyMain.tscn::PackedScene::953774001419848587::1742242663::0::1::::<><>::res://scenes/enemy/fly_enemy_main.gd<>uid://cb0nttk6ts6lq::::res://scenes/enemy/FlyEnemy.tscn
+fly_enemy_main.gd::GDScript::-1::1742242663::0::1::::<>Node2D<>::
+GearBullet.tscn::PackedScene::5253796787544535141::1742242663::0::1::::<><>::res://scripts/enemy/gear_bullt.gd<>uid://wivlji6ntauc::::res://assests/enemy/Effect and Bullet 16x16/Effect and Bullet 16x16/Fire Effect and Bullet 16x16.png
+::res://scenes/main/::1743722303
+main.tscn::PackedScene::5237658713878467101::1743722303::0::1::::<><>::res://scripts/main/main.gd<>uid://blq46q4phf4pv::::res://scenes/player/DummyPlayer.tscn<>uid://nuarvlmosff4::::res://scenes/enemy/FlyEnemyMain.tscn
+::res://scenes/player/::1742242663
+DummyPlayer.tscn::PackedScene::3193345046041739583::1742242663::0::1::::<><>::res://scripts/player/dummy_player.gd<>uid://02cwts0yxtg5::::res://icon.svg
+::res://scripts/::1742242663
+::res://scripts/enemy/::1742242663
+fly_enemy.gd::GDScript::-1::1742242663::0::1::::<>CharacterBody2D<>::
+gear_bullt.gd::GDScript::-1::1742242663::0::1::::<>Area2D<>::
+::res://scripts/global/::1742242663
+Global.gd::GDScript::-1::1742242663::0::1::::<>Node<>::
+::res://scripts/main/::1742242663
+main.gd::GDScript::-1::1742242663::0::1::::<>Node2D<>::
+::res://scripts/player/::1742405815
+dummy_player.gd::GDScript::-1::1742242791::0::1::::<>CharacterBody2D<>::
+jump_ability.gd::GDScript::-1::1742405815::0::1::::<>Area2D<>::

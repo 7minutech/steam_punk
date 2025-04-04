@@ -1,26 +1,26 @@
 [gd_scene load_steps=14 format=3 uid="uid://bb7oq6olk6sqm"]
 
-[ext_resource type="Script" path="res://scenes/hud/controls.gd" id="1_1thh6"]
-[ext_resource type="Texture2D" path="res://assests/backgrounds/start_screen.png" id="1_hkyyv"]
-[ext_resource type="FontFile" uid="uid://08j1ebqqxj8f" path="res://assests/fonts/Steam Punk Flyer.ttf" id="2_d7d6e"]
-[ext_resource type="Texture2D" path="res://assests/UI/keybord and controller icons/controller and mouse/mouse sheet.png" id="2_lail8"]
-[ext_resource type="Texture2D" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/W.png" id="3_e1noq"]
-[ext_resource type="LabelSettings" uid="uid://yf80o5qrirnk" path="res://scenes/hud/new_label_settings.tres" id="3_ea225"]
-[ext_resource type="Texture2D" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/space.png" id="3_n78fk"]
-[ext_resource type="Texture2D" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/A.png" id="4_tvkmw"]
-[ext_resource type="Texture2D" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/S.png" id="5_qfe4w"]
-[ext_resource type="Texture2D" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/D button.png" id="6_vuwk1"]
-[ext_resource type="AudioStream" path="res://assests/sounds/rclick-13693.mp3" id="11_v7nej"]
+[ext_resource type="Script" path="res://scenes/hud/controls.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c6nvtuc2xlpvp" path="res://assests/backgrounds/start_screen.png" id="2"]
+[ext_resource type="FontFile" uid="uid://08j1ebqqxj8f" path="res://assests/fonts/Steam Punk Flyer.ttf" id="3"]
+[ext_resource type="Texture2D" uid="uid://d21pgscah4ibb" path="res://assests/UI/keybord and controller icons/controller and mouse/mouse sheet.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://w4yipiabg0q0" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/W.png" id="5"]
+[ext_resource type="LabelSettings" uid="uid://yf80o5qrirnk" path="res://scenes/hud/new_label_settings.tres" id="6"]
+[ext_resource type="Texture2D" uid="uid://ihirshcop5cu" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/space.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://hit1q3p5uxec" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/A.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://r4133gitgxyr" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/S.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://cp6mxruln2l4n" path="res://assests/UI/keybord and controller icons/individual sprites/keyboard/D button.png" id="10"]
+[ext_resource type="AudioStream" uid="uid://dkdurtqm52s42" path="res://assests/sounds/rclick-13693.mp3" id="11"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s5bee"]
-atlas = ExtResource("2_lail8")
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("4")
 region = Rect2(400, 0, 200, 225)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_v5n0j"]
+[sub_resource type="SpriteFrames" id="2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s5bee")
+"texture": SubResource("1")
 }],
 "loop": true,
 "name": &"default",
@@ -28,19 +28,19 @@ animations = [{
 }]
 
 [node name="Controls" type="Node2D"]
-script = ExtResource("1_1thh6")
+script = ExtResource("1")
 
 [node name="StartScreen" type="Sprite2D" parent="."]
 position = Vector2(576.5, 325)
 scale = Vector2(1.915, 1.08667)
-texture = ExtResource("1_hkyyv")
+texture = ExtResource("2")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 471.0
 offset_top = 488.0
 offset_right = 619.0
 offset_bottom = 537.0
-theme_override_fonts/font = ExtResource("2_d7d6e")
+theme_override_fonts/font = ExtResource("3")
 text = "OK"
 
 [node name="Label" type="Label" parent="."]
@@ -48,28 +48,26 @@ offset_left = 458.0
 offset_top = 43.0
 offset_right = 503.0
 offset_bottom = 66.0
-text = "Shoot
-"
-label_settings = ExtResource("3_ea225")
+text = "Shoot"
+label_settings = ExtResource("6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Label"]
 position = Vector2(106, 12)
 scale = Vector2(0.525, 0.477778)
-sprite_frames = SubResource("SpriteFrames_v5n0j")
+sprite_frames = SubResource("2")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 432.0
 offset_top = 144.0
 offset_right = 521.0
 offset_bottom = 167.0
-text = "Jump Boost
-"
-label_settings = ExtResource("3_ea225")
+text = "Jump Boost"
+label_settings = ExtResource("6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Label2"]
 position = Vector2(189, 17)
 scale = Vector2(0.525, 0.477778)
-sprite_frames = SubResource("SpriteFrames_v5n0j")
+sprite_frames = SubResource("2")
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 444.0
@@ -77,40 +75,38 @@ offset_top = 388.0
 offset_right = 533.0
 offset_bottom = 438.0
 text = "Jump"
-label_settings = ExtResource("3_ea225")
+label_settings = ExtResource("6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Label3"]
 position = Vector2(152, 27)
-texture = ExtResource("3_n78fk")
+texture = ExtResource("7")
 
 [node name="Movement" type="Label" parent="."]
 offset_left = 422.0
 offset_top = 255.0
 offset_right = 534.0
 offset_bottom = 358.0
-text = "Movement
-
-"
-label_settings = ExtResource("3_ea225")
+text = "Movement"
+label_settings = ExtResource("6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Movement"]
 position = Vector2(223, -5)
-texture = ExtResource("3_e1noq")
+texture = ExtResource("5")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Movement"]
 position = Vector2(221, 54)
-texture = ExtResource("4_tvkmw")
+texture = ExtResource("8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Movement"]
 position = Vector2(156, 55)
-texture = ExtResource("5_qfe4w")
+texture = ExtResource("9")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Movement"]
 position = Vector2(295, 54)
-texture = ExtResource("6_vuwk1")
+texture = ExtResource("10")
 
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_v7nej")
+stream = ExtResource("11")
 volume_db = 5.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

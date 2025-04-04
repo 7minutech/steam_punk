@@ -1,0 +1,210 @@
+[gd_scene load_steps=9 format=3 uid="uid://5nda5jidrllv"]
+
+[ext_resource type="Texture2D" uid="uid://c1x8nbug8ygfr" path="res://assests/backgrounds/level_2.png" id="1_hxdyr"]
+[ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_ujakn"]
+[ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_b42g2"]
+[ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_ouppg"]
+[ext_resource type="PackedScene" uid="uid://e3vdltb4rk4r" path="res://scenes/enemy/CrawlerEnemy.tscn" id="5_dbm5b"]
+[ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_eid6c"]
+[ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="6_phb46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dw2q"]
+size = Vector2(1162, 20)
+
+[node name="Level_2" type="Node2D"]
+script = ExtResource("1_ujakn")
+
+[node name="Level1Background" type="Sprite2D" parent="."]
+position = Vector2(576, 322)
+scale = Vector2(0.765333, 1.282)
+texture = ExtResource("1_hxdyr")
+
+[node name="Platform" parent="." instance=ExtResource("2_b42g2")]
+position = Vector2(165, 545)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform5" parent="." instance=ExtResource("2_b42g2")]
+position = Vector2(135, 95)
+scale = Vector2(2, 2)
+collision_layer = 3
+final = true
+
+[node name="Platform2" parent="." instance=ExtResource("2_b42g2")]
+position = Vector2(262, 545)
+scale = Vector2(2, 2)
+
+[node name="Platform3" parent="." instance=ExtResource("2_b42g2")]
+position = Vector2(959, 485)
+scale = Vector2(2, 2)
+
+[node name="Platform4" parent="." instance=ExtResource("2_b42g2")]
+position = Vector2(958, 420)
+scale = Vector2(2, 2)
+
+[node name="Platform8" parent="." instance=ExtResource("2_b42g2")]
+position = Vector2(968, 253)
+scale = Vector2(2, 2)
+
+[node name="Platform9" parent="." instance=ExtResource("2_b42g2")]
+position = Vector2(967, 191)
+scale = Vector2(2, 2)
+
+[node name="Platform6" parent="." instance=ExtResource("2_b42g2")]
+position = Vector2(144, 380)
+scale = Vector2(2, 2)
+
+[node name="Platform7" parent="." instance=ExtResource("2_b42g2")]
+position = Vector2(146, 317)
+scale = Vector2(2, 2)
+
+[node name="dissapearing_platforms2" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(383, 542)
+
+[node name="dissapearing_platforms" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(465, 542)
+
+[node name="dissapearing_platforms4" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(548, 542)
+
+[node name="dissapearing_platforms5" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(630, 542)
+
+[node name="dissapearing_platforms6" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(713, 542)
+
+[node name="dissapearing_platforms7" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(795, 542)
+
+[node name="dissapearing_platforms8" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(878, 542)
+
+[node name="dissapearing_platforms9" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(960, 542)
+
+[node name="dissapearing_platforms3" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(268, 398)
+
+[node name="dissapearing_platforms10" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(350, 398)
+
+[node name="dissapearing_platforms11" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(433, 398)
+
+[node name="dissapearing_platforms12" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(515, 398)
+
+[node name="dissapearing_platforms13" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(598, 398)
+
+[node name="dissapearing_platforms14" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(680, 398)
+
+[node name="dissapearing_platforms15" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(763, 398)
+
+[node name="dissapearing_platforms16" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(845, 398)
+
+[node name="CrawlerEnemy" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-343, 117)
+
+[node name="CrawlerEnemy2" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-181, 116)
+
+[node name="CrawlerEnemy3" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-37, 115)
+
+[node name="CrawlerEnemy4" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-472, -144)
+
+[node name="CrawlerEnemy5" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-310, -145)
+
+[node name="CrawlerEnemy11" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-166, -146)
+
+[node name="CrawlerEnemy8" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-457, -291)
+
+[node name="CrawlerEnemy9" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-295, -292)
+
+[node name="CrawlerEnemy12" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-151, -293)
+
+[node name="CrawlerEnemy6" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-471, -28)
+
+[node name="CrawlerEnemy7" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-285, -28)
+
+[node name="CrawlerEnemy10" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-98, -27)
+
+[node name="dissapearing_platforms17" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(270, 280)
+
+[node name="dissapearing_platforms18" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(352, 280)
+
+[node name="dissapearing_platforms19" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(435, 280)
+
+[node name="dissapearing_platforms20" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(517, 280)
+
+[node name="dissapearing_platforms21" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(600, 280)
+
+[node name="dissapearing_platforms22" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(682, 280)
+
+[node name="dissapearing_platforms23" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(765, 280)
+
+[node name="dissapearing_platforms24" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(847, 280)
+
+[node name="dissapearing_platforms25" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(281, 135)
+
+[node name="dissapearing_platforms26" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(363, 135)
+
+[node name="dissapearing_platforms27" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(446, 135)
+
+[node name="dissapearing_platforms28" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(528, 135)
+
+[node name="dissapearing_platforms29" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(611, 135)
+
+[node name="dissapearing_platforms30" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(693, 135)
+
+[node name="dissapearing_platforms31" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(776, 135)
+
+[node name="dissapearing_platforms32" parent="." instance=ExtResource("3_ouppg")]
+position = Vector2(858, 135)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("5_eid6c")]
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(152, 480)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(581, -2)
+shape = SubResource("RectangleShape2D_6dw2q")
+
+[node name="crate" parent="." instance=ExtResource("6_phb46")]
+position = Vector2(273, 525)
+
+[connection signal="player_fell_off" from="." to="." method="_on_player_fell_off"]

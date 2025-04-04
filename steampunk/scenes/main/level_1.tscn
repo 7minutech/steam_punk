@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfnn2e6colnha"]
+[gd_scene load_steps=10 format=3 uid="uid://mb563s56n0tk"]
 
 [ext_resource type="Texture2D" uid="uid://cvwruj6f6ke13" path="res://assests/backgrounds/level_1.png" id="1_16ts0"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_ocmnv"]
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_62gxx"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_byipa"]
+[ext_resource type="PackedScene" uid="uid://e3vdltb4rk4r" path="res://scenes/enemy/CrawlerEnemy.tscn" id="6_bnfeb"]
 [ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="6_rbiq4"]
-[ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="7_1tdol"]
 [ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="7_y5t4f"]
+[ext_resource type="AudioStream" uid="uid://dhjrq5bq8xxo5" path="res://assests/sounds/level_music/Alexander Ehlers - Doomed.mp3" id="8_b1uuc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m04jg"]
+size = Vector2(1162, 20)
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_ocmnv")
@@ -22,33 +26,139 @@ scale = Vector2(2, 2)
 collision_layer = 3
 
 [node name="Platform3" parent="." instance=ExtResource("2_62gxx")]
-position = Vector2(466, 478)
+position = Vector2(515, 504)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform8" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(906, 291)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform9" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(754, 320)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform10" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(630, 344)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform11" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(524, 126)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform19" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(265, 98)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform20" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(429, 126)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform12" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(641, 129)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform13" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(757, 187)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform14" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(627, 233)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform15" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(459, 270)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform16" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(260, 284)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform17" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(96, 310)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform18" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(88, 365)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Platform7" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(1062, 320)
 scale = Vector2(2, 2)
 collision_layer = 3
 
 [node name="Platform4" parent="." instance=ExtResource("2_62gxx")]
-position = Vector2(1000, 292)
+position = Vector2(1058, 382)
 scale = Vector2(2, 2)
 collision_layer = 3
+
+[node name="Platform6" parent="." instance=ExtResource("2_62gxx")]
+position = Vector2(102, 92)
+scale = Vector2(2, 2)
+collision_layer = 3
+final = true
 
 [node name="Platform2" parent="." instance=ExtResource("2_62gxx")]
 position = Vector2(342, 536)
 scale = Vector2(2, 2)
 
 [node name="dissapearing_platforms2" parent="." instance=ExtResource("3_byipa")]
-position = Vector2(602, 430)
+position = Vector2(675, 480)
+
+[node name="dissapearing_platforms5" parent="." instance=ExtResource("3_byipa")]
+position = Vector2(343, 388)
+
+[node name="dissapearing_platforms9" parent="." instance=ExtResource("3_byipa")]
+position = Vector2(259, 388)
+
+[node name="dissapearing_platforms10" parent="." instance=ExtResource("3_byipa")]
+position = Vector2(80, 410)
+
+[node name="dissapearing_platforms6" parent="." instance=ExtResource("3_byipa")]
+position = Vector2(426, 388)
+
+[node name="dissapearing_platforms7" parent="." instance=ExtResource("3_byipa")]
+position = Vector2(508, 388)
 
 [node name="dissapearing_platforms" parent="." instance=ExtResource("3_byipa")]
-position = Vector2(729, 382)
+position = Vector2(831, 451)
 
 [node name="dissapearing_platforms3" parent="." instance=ExtResource("3_byipa")]
-position = Vector2(872, 337)
+position = Vector2(963, 421)
 
-[node name="FlyingEnemy" parent="." instance=ExtResource("6_rbiq4")]
-position = Vector2(451, 324)
+[node name="FlyingEnemy3" parent="." instance=ExtResource("6_rbiq4")]
+position = Vector2(816, 82)
+
+[node name="FlyingEnemy4" parent="." instance=ExtResource("6_rbiq4")]
+position = Vector2(1065, 223)
+
+[node name="FlyingEnemy5" parent="." instance=ExtResource("6_rbiq4")]
+position = Vector2(89, 219)
+
+[node name="CrawlerEnemy" parent="." instance=ExtResource("6_bnfeb")]
+position = Vector2(295, 357)
+
+[node name="CrawlerEnemy3" parent="." instance=ExtResource("6_bnfeb")]
+position = Vector2(444, 90)
+
+[node name="CrawlerEnemy2" parent="." instance=ExtResource("6_bnfeb")]
+position = Vector2(459, 356)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(56, 478)
+position = Vector2(66, 489)
 
 [node name="Platform5" parent="." instance=ExtResource("2_62gxx")]
 position = Vector2(75, 545)
@@ -58,7 +168,14 @@ collision_layer = 3
 [node name="crate" parent="." instance=ExtResource("7_y5t4f")]
 position = Vector2(166, 527)
 
-[node name="HumanPlayer" parent="." instance=ExtResource("7_1tdol")]
-position = Vector2(96, 481)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(571, 0)
+shape = SubResource("RectangleShape2D_m04jg")
+
+[node name="LevelMusic1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_b1uuc")
+volume_db = -31.0
 
 [connection signal="player_fell_off" from="." to="." method="_on_player_fell_off"]

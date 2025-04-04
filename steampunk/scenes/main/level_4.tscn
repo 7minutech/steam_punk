@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://87jm367viq3x"]
+[gd_scene load_steps=8 format=3 uid="uid://dfit3yhwynhod"]
 
 [ext_resource type="Script" path="res://scripts/main/level_4.gd" id="1_04edr"]
 [ext_resource type="Texture2D" uid="uid://1c5o1uuy7b6l" path="res://assests/backgrounds/level_4.png" id="1_esbpe"]
 [ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="4_j53go"]
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_kdclw"]
 [ext_resource type="PackedScene" uid="uid://bq2gbmm2jthkf" path="res://boss.tscn" id="7_3sile"]
+[ext_resource type="AudioStream" uid="uid://hpecd4onx2c2" path="res://assests/sounds/level_music/Alexander Ehlers - Great mission.mp3" id="7_telax"]
 [ext_resource type="PackedScene" uid="uid://boua1tnc61p21" path="res://scenes/object/longerplatform.tscn" id="7_vyl82"]
 
 [node name="Level_4" type="Node2D"]
@@ -17,14 +18,6 @@ texture = ExtResource("1_esbpe")
 
 [node name="HumanPlayer" parent="." instance=ExtResource("4_j53go")]
 position = Vector2(528, 531)
-
-[node name="Camera2D2" type="Camera2D" parent="HumanPlayer"]
-visible = false
-zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 1150
-limit_bottom = 650
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -60,3 +53,7 @@ position = Vector2(536, 376)
 
 [node name="Platform8" parent="." instance=ExtResource("7_vyl82")]
 position = Vector2(744, 424)
+
+[node name="LevelMusic4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_telax")
+volume_db = -32.0

@@ -103,7 +103,8 @@ func _process(delta: float) -> void:
 [node name="HumanPlayer" type="CharacterBody2D" groups=["hero"]]
 position = Vector2(568, 281)
 script = ExtResource("1_fxw60")
-ability_texture = "double_jump"
+jump_cd = 3.0
+ability_texture = "Jump Boost"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 10)
@@ -123,7 +124,7 @@ shape = SubResource("CircleShape2D_wi4qs")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 limit_left = 5
-limit_top = 0
+limit_top = 5
 limit_right = 1150
 limit_bottom = 600
 limit_smoothed = true
@@ -140,4 +141,7 @@ position = Vector2(1, 19)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
+[node name="JumpBoostTimer" type="Timer" parent="."]
+
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="timeout" from="JumpBoostTimer" to="." method="_on_jump_boost_timer_timeout"]

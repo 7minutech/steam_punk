@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed: float = 200.0
-const JUMP_VELOCITY: float = -400.0 
+var JUMP_VELOCITY: float = -350.0 
 @export var gravity: bool = true
 @export var health: int = 100
 var max_health: int = 100
@@ -12,11 +12,14 @@ var running: bool = false
 var idling: bool = false
 var lives: int = 3
 var current_gun: String
+var can_jump_boost: bool = true
+@export var jump_cd: float
 @onready var player_hud: Hud = $CanvasLayer/Hud
 @export_enum("yellow_gun","green_gun","blue_rifle","blue_gun","ant_shotgun","ant_gun") var gun_sprite: String
 @export_enum("yellow_gun","green_gun","blue_rifle","blue_gun","ant_shotgun","ant_gun") var gun_texture: String
 @export_enum("double_jump","grappling_hook","wings") var ability_texture: String
 func _ready() 	-> void:
+	$JumpBoostTimer.wait_time = jump_cd
 	swap_gun("No gun")
 	if player_hud != null:
 		set_ability_ui(ability_texture)
@@ -45,6 +48,14 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.G
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump_boost") and is_on_floor and can_jump_boost:
+		velocity.y = JUMP_VELOCITY - 100
+		$JumpBoostTimer.start()
+		can_jump_boost = false
+		var ability_texture: TextureRect = player_hud.get_node("Ability_Texture")
+		ability_texture.hide()
+
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -139,7 +150,7 @@ func set_ability_ui(ability: String):
 	match ability:
 		"double_jump":
 			ability_texture.texture = load("res://assests/ability/double_jump.png")
-			player_hud.ability_label.text = "Double Jump"
+			player_hud.ability_label.text = "Jump Boost"
 		"grappling_hook":
 			ability_texture.texture = load("res://assests/ability/grappling_hook.png")
 			player_hud.ability_label.text = "Grappling Hook"
@@ -177,3 +188,10 @@ func set_weapon_ui(weapon: String):
 func swap_gun(name: String):
 	set_weapon_ui(name)
 	swap_gun_sprite(name)
+
+
+func _on_jump_boost_timer_timeout() -> void:
+	can_jump_boost = true
+	var ability_texture: TextureRect = player_hud.get_node("Ability_Texture")
+	ability_texture.show()
+	pass # Replace with function body.

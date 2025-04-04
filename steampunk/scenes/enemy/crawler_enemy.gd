@@ -3,7 +3,7 @@ extends Node2D
 @onready var path_follow = $Path2D/PathFollow2D
 @onready var sprite = $Path2D/PathFollow2D/CharacterBody2D/AnimatedSprite2D
 @export var speed: int = 1
-@export var health: int = 100
+@export var health: int = 40
 @export var atk_cd_time: int
 var atk_cd: bool = false
 func _ready() -> void:
