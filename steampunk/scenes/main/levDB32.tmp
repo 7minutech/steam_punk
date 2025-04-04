@@ -157,7 +157,7 @@ position = Vector2(444, 90)
 position = Vector2(459, 356)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(66, 489)
+position = Vector2(747, 120)
 
 [node name="Platform5" parent="." instance=ExtResource("2_62gxx")]
 position = Vector2(75, 545)
