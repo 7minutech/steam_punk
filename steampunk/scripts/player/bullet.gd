@@ -8,6 +8,7 @@ class_name Bullet
 @onready var laser_bullet = $Sprite2D
 @onready var water_bullet = $Sprite2D2
 var sprite
+var damage =10
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if laser:
@@ -50,7 +51,7 @@ func bullet():
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		print("hit")
-		body.hit()
+		body.hit(damage)
 	pass # Replace with function body.
 
 

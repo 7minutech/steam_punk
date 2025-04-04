@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl8gvlp4r2pfa"]
+
+[ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="1_wuqep"]
+[ext_resource type="PackedScene" uid="uid://bq2gbmm2jthkf" path="res://boss.tscn" id="2_yxfv5"]
+[ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="3_s8cio"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p87er"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dty2o"]
+
+[node name="testBoss" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(89, 440)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_p87er")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(0, 160)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("WorldBoundaryShape2D_p87er")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(320, 352)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+shape = SubResource("WorldBoundaryShape2D_p87er")
+
+[node name="Platform6" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(400, 224)
+
+[node name="Platform7" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(456, 294)
+scale = Vector2(2.56, 1)
+
+[node name="Platform4" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(570, 263)
+scale = Vector2(2.23399, 1.28663)
+
+[node name="Boss" parent="." instance=ExtResource("2_yxfv5")]
+position = Vector2(672, 248)
+
+[node name="Platform9" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(672, 285)
+scale = Vector2(2, 1)
+
+[node name="Platform10" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(760, 299)
+scale = Vector2(1.6, 1)
+
+[node name="Platform13" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(848, 285)
+scale = Vector2(1.92, 1)
+
+[node name="Platform14" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(944, 168)
+
+[node name="Platform15" parent="." instance=ExtResource("1_wuqep")]
+position = Vector2(968, 248)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(696, 568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_dty2o")
+
+[node name="HumanPlayer" parent="." instance=ExtResource("3_s8cio")]
+position = Vector2(768, 256)

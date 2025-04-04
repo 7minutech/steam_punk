@@ -1,51 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://cte67r4alg6k"]
+[gd_scene load_steps=7 format=3 uid="uid://87jm367viq3x"]
 
 [ext_resource type="Script" path="res://scripts/main/level_4.gd" id="1_04edr"]
 [ext_resource type="Texture2D" uid="uid://1c5o1uuy7b6l" path="res://assests/backgrounds/level_4.png" id="1_esbpe"]
-[ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_lf5ty"]
-[ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_aifqp"]
 [ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="4_j53go"]
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_kdclw"]
+[ext_resource type="PackedScene" uid="uid://bq2gbmm2jthkf" path="res://boss.tscn" id="7_3sile"]
+[ext_resource type="PackedScene" uid="uid://boua1tnc61p21" path="res://scenes/object/longerplatform.tscn" id="7_vyl82"]
 
 [node name="Level_4" type="Node2D"]
 script = ExtResource("1_04edr")
 
 [node name="Level1Background" type="Sprite2D" parent="."]
-position = Vector2(576, 323.5)
-scale = Vector2(0.765333, 1.282)
+position = Vector2(600, 348)
+scale = Vector2(0.992, 1.648)
 texture = ExtResource("1_esbpe")
 
-[node name="Platform" parent="." instance=ExtResource("2_lf5ty")]
-position = Vector2(165, 545)
-scale = Vector2(2, 2)
-collision_layer = 3
-
-[node name="Platform3" parent="." instance=ExtResource("2_lf5ty")]
-position = Vector2(466, 478)
-scale = Vector2(2, 2)
-collision_layer = 3
-
-[node name="Platform4" parent="." instance=ExtResource("2_lf5ty")]
-position = Vector2(1000, 292)
-scale = Vector2(2, 2)
-collision_layer = 3
-
-[node name="Platform2" parent="." instance=ExtResource("2_lf5ty")]
-position = Vector2(317, 519)
-scale = Vector2(2, 2)
-
-[node name="dissapearing_platforms2" parent="." instance=ExtResource("3_aifqp")]
-position = Vector2(602, 430)
-
-[node name="dissapearing_platforms" parent="." instance=ExtResource("3_aifqp")]
-position = Vector2(729, 382)
-
-[node name="dissapearing_platforms3" parent="." instance=ExtResource("3_aifqp")]
-position = Vector2(872, 337)
-
 [node name="HumanPlayer" parent="." instance=ExtResource("4_j53go")]
-position = Vector2(193, 400)
-gravity = true
+position = Vector2(528, 531)
 
 [node name="Camera2D2" type="Camera2D" parent="HumanPlayer"]
 visible = false
@@ -62,3 +33,30 @@ visible = false
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(139, 455)
+
+[node name="Boss" parent="." instance=ExtResource("7_3sile")]
+position = Vector2(480, 536)
+
+[node name="Platform" parent="." instance=ExtResource("7_vyl82")]
+position = Vector2(528, 584)
+
+[node name="Platform2" parent="." instance=ExtResource("7_vyl82")]
+position = Vector2(752, 544)
+
+[node name="Platform3" parent="." instance=ExtResource("7_vyl82")]
+position = Vector2(960, 491)
+
+[node name="Platform4" parent="." instance=ExtResource("7_vyl82")]
+position = Vector2(328, 544)
+
+[node name="Platform5" parent="." instance=ExtResource("7_vyl82")]
+position = Vector2(152, 488)
+
+[node name="Platform6" parent="." instance=ExtResource("7_vyl82")]
+position = Vector2(336, 424)
+
+[node name="Platform7" parent="." instance=ExtResource("7_vyl82")]
+position = Vector2(536, 376)
+
+[node name="Platform8" parent="." instance=ExtResource("7_vyl82")]
+position = Vector2(744, 424)

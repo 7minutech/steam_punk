@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://24if6tyhruiw"]
+
+[ext_resource type="Texture2D" uid="uid://rqhgw1ehc77b" path="res://WhatsApp Image 2025-04-03 at 23.17.20.png" id="1_2rwkj"]
+[ext_resource type="FontFile" uid="uid://bw6mltsbx3mny" path="res://PixelOperator8-Bold.ttf" id="2_44yiw"]
+
+[node name="EndingScene" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.92112, 1.0728)
+texture = ExtResource("1_2rwkj")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 204.0
+offset_top = 152.0
+offset_right = 345.0
+offset_bottom = 254.0
+scale = Vector2(5.04565, 3.05657)
+theme_override_fonts/font = ExtResource("2_44yiw")
+theme_override_font_sizes/font_size = 8
+text = "Congratulations!
+You won the game!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
