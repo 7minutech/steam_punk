@@ -9,6 +9,8 @@ var atk_cd = false
 func _ready() -> void:
 	pass # Replace with function body.
 
+func enemy():
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

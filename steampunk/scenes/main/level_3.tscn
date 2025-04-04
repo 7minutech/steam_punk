@@ -210,7 +210,7 @@ visible = false
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("5_c5k47")]
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(69, 475)
+position = Vector2(100, 27)
 
 [node name="dissapearing_platforms" parent="." instance=ExtResource("3_y5h3f")]
 position = Vector2(631, 408)

@@ -4,7 +4,7 @@ var current_health: int = 100
 var max_health: int = 100
 var player: Player
 var health_bar: HealthBar
-
+var player_died: bool = false
 
 func update_current_health(health: int):
 	current_health = health

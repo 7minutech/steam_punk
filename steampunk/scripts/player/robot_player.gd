@@ -31,7 +31,11 @@ func _ready() 	-> void:
 func _physics_process(delta: float) -> void:
 	if health <= 0:
 		lives -= 1
+		health = 100
+		HealthObserver.player_died = true
+		HealthObserver.update_current_health(health)
 		KillObserver.update_life_count(lives)
+		
 	# Add the gravity.\
 	if lives <= 0:
 		$AnimatedSprite2D.hide()

@@ -33,7 +33,7 @@ var player = null
 var can_attack = true
 
 var directions = [Vector2.LEFT]
-var health: int = 50  
+@export var health: int = 50  
 
 var teleport_points = [
 	Vector2(530, 520),

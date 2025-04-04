@@ -7,13 +7,16 @@ func _ready() -> void:
 	Global.current_name_level = self.name
 	if self.name == "Level_1":
 		Global.level_name = "The Obsidian Foundry"
-		$LevelMusic1.play()
+		$LevelMusic1.play()	
 	elif self.name == "Level_2":
 		Global.level_name = "The Emerald Boilerworks"
 		$LevelMusic2.play()
 	elif self.name == "Level_3":
 		Global.level_name = "The Crimson Crucible"
 		$LevelMusic3.play()
+	elif self.name == "Level_4":
+		Global.level_name = "Ironspire"
+		$LevelMusic4.play()
 	set_player_choosen()
 	SignalBus.player_fell_off.connect(_on_player_fell_off)
 	pass # Replace with function body.
@@ -21,6 +24,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if HealthObserver.player_died:
+		var player: Player = get_tree().get_first_node_in_group("hero")
+		player.position = $SpawnPoint.position
+		HealthObserver.player_died = false
 	pass
 
 func set_player_choosen():
