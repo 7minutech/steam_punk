@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b61fqprehb51a"]
+[gd_scene load_steps=4 format=3 uid="uid://b61fqprehb51a"]
 
 [ext_resource type="Texture2D" uid="uid://buwqyystfovsw" path="res://assests/player/sGun.png" id="1_x52j7"]
 [ext_resource type="Script" path="res://scripts/player/gun.gd" id="2_5y45s"]
+[ext_resource type="AudioStream" uid="uid://mj4syfa1v52o" path="res://assests/sounds/gun/single-gunshot-54-40780.mp3" id="3_nnwby"]
 
 [node name="Gun" type="Sprite2D"]
 scale = Vector2(0.607143, 0.5)
@@ -10,3 +11,6 @@ script = ExtResource("2_5y45s")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(14, 0)
+
+[node name="GunAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nnwby")

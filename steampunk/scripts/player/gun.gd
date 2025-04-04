@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 		bullet_instace.position.y += 19
 		get_parent().get_node("Camera2D/ScreenShaker").shake(0.2,2)
 		get_parent().add_child(bullet_instace)
+		$GunAudio.play()
 		can_fire = false
 		await get_tree().create_timer(bullet_cd).timeout
 		can_fire = true
