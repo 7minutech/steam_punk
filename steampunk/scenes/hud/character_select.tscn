@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://cr5pt7hwgfn6e"]
+[gd_scene load_steps=22 format=3 uid="uid://cr5pt7hwgfn6e"]
 
 [ext_resource type="Script" path="res://scripts/hud/character_select.gd" id="1_gkbc0"]
+[ext_resource type="Texture2D" uid="uid://c6nvtuc2xlpvp" path="res://assests/backgrounds/start_screen.png" id="2_r6lma"]
 [ext_resource type="FontFile" uid="uid://08j1ebqqxj8f" path="res://assests/fonts/Steam Punk Flyer.ttf" id="2_unkhe"]
 [ext_resource type="Texture2D" uid="uid://dcgmue0elvjc4" path="res://assests/player/Mechanic Mike/idle.png" id="4_508tf"]
 [ext_resource type="Texture2D" uid="uid://8a1a130rfxiy" path="res://assests/player/Destroyer/Idle.png" id="5_k6nil"]
@@ -120,6 +121,11 @@ animations = [{
 [node name="CharacterSelect" type="Node2D"]
 script = ExtResource("1_gkbc0")
 
+[node name="StartScreen" type="Sprite2D" parent="."]
+position = Vector2(576.5, 325)
+scale = Vector2(1.92833, 1.07333)
+texture = ExtResource("2_r6lma")
+
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -136,25 +142,25 @@ text = "Choose your Character"
 label_settings = SubResource("LabelSettings_u6c8g")
 
 [node name="HumanLabel" type="Label" parent="."]
-offset_left = 319.0
-offset_top = 369.0
-offset_right = 517.0
-offset_bottom = 427.0
+offset_left = 323.0
+offset_top = 386.0
+offset_right = 521.0
+offset_bottom = 444.0
 theme_override_fonts/font = ExtResource("2_unkhe")
 theme_override_font_sizes/font_size = 24
 text = "Vesper Cogsworth"
 
 [node name="RobotLabel" type="Label" parent="."]
-offset_left = 727.0
-offset_top = 375.0
-offset_right = 807.0
-offset_bottom = 433.0
+offset_left = 642.0
+offset_top = 383.0
+offset_right = 722.0
+offset_bottom = 441.0
 theme_override_fonts/font = ExtResource("2_unkhe")
 theme_override_font_sizes/font_size = 24
 text = "B.O.L.T "
 
 [node name="Human" type="AnimatedSprite2D" parent="."]
-position = Vector2(423, 288)
+position = Vector2(422, 307)
 scale = Vector2(4.43125, 4.39844)
 sprite_frames = SubResource("SpriteFrames_vvxgl")
 animation = &"idle"
@@ -168,7 +174,7 @@ offset_bottom = 18.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_qgskr")
 
 [node name="Robot" type="AnimatedSprite2D" parent="."]
-position = Vector2(751, 247)
+position = Vector2(678, 263)
 scale = Vector2(1.85156, 1.76953)
 sprite_frames = SubResource("SpriteFrames_kid6e")
 animation = &"idle"

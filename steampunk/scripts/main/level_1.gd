@@ -4,12 +4,13 @@ signal player_fell_off
 var player_scene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.current_name_level = self.name
 	if self.name == "Level_1":
 		Global.level_name = "The Obsidian Foundry"
 	elif self.name == "Level_2":
 		Global.level_name = "The Emerald Boilerworks"
 	elif self.name == "Level_3":
-		Global.self.name == "The Crimson Crucible"
+		Global.level_name = "The Crimson Crucible"
 	set_player_choosen()
 	SignalBus.player_fell_off.connect(_on_player_fell_off)
 	pass # Replace with function body.

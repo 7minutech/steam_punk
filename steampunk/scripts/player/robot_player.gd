@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed: float = 200.0
-const JUMP_VELOCITY: float = -400.0 
+const JUMP_VELOCITY: float = -350.0 
 @export var gravity: bool = true
 @export var health: int = 100
 var max_health: int = 100

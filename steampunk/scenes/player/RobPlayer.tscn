@@ -97,7 +97,6 @@ position = Vector2(0, 14)
 shape = SubResource("CircleShape2D_lku4a")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 19)
@@ -118,7 +117,6 @@ script = SubResource("GDScript_okl78")
 position = Vector2(1, 19)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("5_js2dr")]
 offset_left = 5.0
