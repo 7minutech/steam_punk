@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfnn2e6colnha"]
+[gd_scene load_steps=9 format=3 uid="uid://cfnn2e6colnha"]
 
 [ext_resource type="Texture2D" uid="uid://cvwruj6f6ke13" path="res://assests/backgrounds/level_1.png" id="1_16ts0"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_ocmnv"]
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_62gxx"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_byipa"]
+[ext_resource type="PackedScene" uid="uid://e3vdltb4rk4r" path="res://scenes/enemy/CrawlerEnemy.tscn" id="6_bnfeb"]
 [ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="6_rbiq4"]
 [ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="7_y5t4f"]
 
@@ -44,7 +45,7 @@ scale = Vector2(2, 2)
 collision_layer = 3
 
 [node name="Platform11" parent="." instance=ExtResource("2_62gxx")]
-position = Vector2(525, 103)
+position = Vector2(524, 126)
 scale = Vector2(2, 2)
 collision_layer = 3
 
@@ -54,7 +55,7 @@ scale = Vector2(2, 2)
 collision_layer = 3
 
 [node name="Platform20" parent="." instance=ExtResource("2_62gxx")]
-position = Vector2(406, 103)
+position = Vector2(429, 126)
 scale = Vector2(2, 2)
 collision_layer = 3
 
@@ -69,7 +70,7 @@ scale = Vector2(2, 2)
 collision_layer = 3
 
 [node name="Platform14" parent="." instance=ExtResource("2_62gxx")]
-position = Vector2(638, 247)
+position = Vector2(627, 233)
 scale = Vector2(2, 2)
 collision_layer = 3
 
@@ -137,11 +138,26 @@ position = Vector2(831, 451)
 [node name="dissapearing_platforms3" parent="." instance=ExtResource("3_byipa")]
 position = Vector2(963, 421)
 
-[node name="FlyingEnemy" parent="." instance=ExtResource("6_rbiq4")]
-position = Vector2(534, 346)
+[node name="FlyingEnemy3" parent="." instance=ExtResource("6_rbiq4")]
+position = Vector2(816, 82)
+
+[node name="FlyingEnemy4" parent="." instance=ExtResource("6_rbiq4")]
+position = Vector2(1065, 223)
+
+[node name="FlyingEnemy5" parent="." instance=ExtResource("6_rbiq4")]
+position = Vector2(89, 219)
+
+[node name="CrawlerEnemy" parent="." instance=ExtResource("6_bnfeb")]
+position = Vector2(295, 357)
+
+[node name="CrawlerEnemy3" parent="." instance=ExtResource("6_bnfeb")]
+position = Vector2(444, 90)
+
+[node name="CrawlerEnemy2" parent="." instance=ExtResource("6_bnfeb")]
+position = Vector2(459, 356)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(56, 478)
+position = Vector2(747, 120)
 
 [node name="Platform5" parent="." instance=ExtResource("2_62gxx")]
 position = Vector2(75, 545)

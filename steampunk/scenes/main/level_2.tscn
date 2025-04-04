@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://5nda5jidrllv"]
+[gd_scene load_steps=9 format=3 uid="uid://5nda5jidrllv"]
 
 [ext_resource type="Texture2D" uid="uid://c1x8nbug8ygfr" path="res://assests/backgrounds/level_2.png" id="1_hxdyr"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_ujakn"]
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_b42g2"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_ouppg"]
+[ext_resource type="PackedScene" uid="uid://e3vdltb4rk4r" path="res://scenes/enemy/CrawlerEnemy.tscn" id="5_dbm5b"]
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_eid6c"]
 [ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="6_phb46"]
 
@@ -14,7 +15,7 @@ size = Vector2(1162, 20)
 script = ExtResource("1_ujakn")
 
 [node name="Level1Background" type="Sprite2D" parent="."]
-position = Vector2(664, 380)
+position = Vector2(576, 322)
 scale = Vector2(0.765333, 1.282)
 texture = ExtResource("1_hxdyr")
 
@@ -105,6 +106,42 @@ position = Vector2(763, 398)
 [node name="dissapearing_platforms16" parent="." instance=ExtResource("3_ouppg")]
 position = Vector2(845, 398)
 
+[node name="CrawlerEnemy" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-343, 117)
+
+[node name="CrawlerEnemy2" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-181, 116)
+
+[node name="CrawlerEnemy3" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-37, 115)
+
+[node name="CrawlerEnemy4" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-472, -144)
+
+[node name="CrawlerEnemy5" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-310, -145)
+
+[node name="CrawlerEnemy11" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-166, -146)
+
+[node name="CrawlerEnemy8" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-457, -291)
+
+[node name="CrawlerEnemy9" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-295, -292)
+
+[node name="CrawlerEnemy12" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-151, -293)
+
+[node name="CrawlerEnemy6" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-471, -28)
+
+[node name="CrawlerEnemy7" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-285, -28)
+
+[node name="CrawlerEnemy10" parent="dissapearing_platforms16" instance=ExtResource("5_dbm5b")]
+position = Vector2(-98, -27)
+
 [node name="dissapearing_platforms17" parent="." instance=ExtResource("3_ouppg")]
 position = Vector2(270, 280)
 
@@ -159,12 +196,12 @@ visible = false
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("5_eid6c")]
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(153, 493)
+position = Vector2(152, 480)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(571, 0)
+position = Vector2(581, -2)
 shape = SubResource("RectangleShape2D_6dw2q")
 
 [node name="crate" parent="." instance=ExtResource("6_phb46")]

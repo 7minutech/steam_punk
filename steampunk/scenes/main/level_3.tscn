@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://lqam4eox54e1"]
+[gd_scene load_steps=9 format=3 uid="uid://lqam4eox54e1"]
 
 [ext_resource type="Texture2D" uid="uid://2jxbrwqy2rfe" path="res://assests/backgrounds/level_3.png" id="1_mo1pe"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_p2bv6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_y5h3f"]
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_c5k47"]
 [ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="6_ju7c2"]
+[ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="7_34moo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgewb"]
 size = Vector2(584.5, 15)
@@ -236,3 +237,23 @@ position = Vector2(886, 459)
 
 [node name="crate" parent="." instance=ExtResource("6_ju7c2")]
 position = Vector2(200, 522)
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("7_34moo")]
+
+[node name="FlyingEnemy7" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(524, 66)
+
+[node name="FlyingEnemy2" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(255, 268)
+
+[node name="FlyingEnemy3" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(956, 175)
+
+[node name="FlyingEnemy4" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(1005, 378)
+
+[node name="FlyingEnemy5" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(730, 429)
+
+[node name="FlyingEnemy6" parent="." instance=ExtResource("7_34moo")]
+position = Vector2(451, 506)
