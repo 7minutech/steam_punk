@@ -43,14 +43,14 @@ func _on_body_entered(body: Node2D) -> void:
 		queue_free()
 	pass # Replace with function body.
 
-
 func bullet():
 	pass
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.has_method("enemy"):
-		print("hit")
+	if body.has_method("enemy") and body.has_method("flying"):
+		body.hit()
+	elif body.has_method("enemy"):
 		body.hit(damage)
 	pass # Replace with function body.
 

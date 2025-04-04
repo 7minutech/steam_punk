@@ -104,6 +104,9 @@ func hit():
 	health -= 25
 	hurt_flicker()
 
+func flying():
+	pass
+
 
 func _on_player_has_spawned() -> void:
 	player = Global.player
