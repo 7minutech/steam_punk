@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b8edt435hul6c" path="res://assests/UI/healthbarUnder.png" id="6_njloe"]
 [ext_resource type="Texture2D" uid="uid://cb12mxtxoan5b" path="res://assests/UI/healthbarProgress.png" id="7_27m2i"]
 [ext_resource type="Script" path="res://scripts/hud/texture_progress_bar.gd" id="8_06vr6"]
-[ext_resource type="Texture2D" uid="uid://022udtetgvxj" path="res://assests/ability/grappling_hook.png" id="10_tj1up"]
+[ext_resource type="Texture2D" uid="uid://dn8o2msf5vuv2" path="res://assests/ability/double_jump.png" id="10_2pv5g"]
 [ext_resource type="Texture2D" uid="uid://c7qy0ew7q8s31" path="res://assests/player/yellow_gun.png" id="11_d28mr"]
 [ext_resource type="Texture2D" uid="uid://ds18m8s52ev67" path="res://assests/UI/border.png" id="12_qkv6w"]
 [ext_resource type="PackedScene" uid="uid://cxlparljkf7ot" path="res://scenes/hud/TransitionText.tscn" id="13_4a6qg"]
@@ -134,7 +134,7 @@ offset_top = -112.0
 offset_right = 104.0
 offset_bottom = -72.0
 grow_vertical = 0
-texture = ExtResource("10_tj1up")
+texture = ExtResource("10_2pv5g")
 
 [node name="ability_label" type="Label" parent="Ability_Texture"]
 layout_mode = 0
@@ -142,23 +142,9 @@ offset_left = -24.0
 offset_top = -48.0
 offset_right = 88.0
 offset_bottom = -18.0
-text = "Old Henry"
+text = "Jump Boost"
 label_settings = SubResource("LabelSettings_0o0eq")
 vertical_alignment = 1
-
-[node name="Ability_label_2" type="Label" parent="Ability_Texture"]
-visible = false
-layout_mode = 0
-offset_left = -24.0
-offset_top = -32.0
-offset_right = 80.0
-offset_bottom = 1.0
-theme_override_fonts/font = ExtResource("2_s27ta")
-theme_override_font_sizes/font_size = 16
-text = "Double Jump"
-label_settings = ExtResource("2_ii7w3")
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="Weapon_Texture" type="TextureRect" parent="."]
 layout_mode = 1
