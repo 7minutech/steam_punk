@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://24if6tyhruiw"]
+[gd_scene load_steps=10 format=3 uid="uid://24if6tyhruiw"]
 
 [ext_resource type="Texture2D" uid="uid://rqhgw1ehc77b" path="res://WhatsApp Image 2025-04-03 at 23.17.20.png" id="1_2rwkj"]
+[ext_resource type="Script" path="res://endingscene.gd" id="1_h0dd0"]
 [ext_resource type="FontFile" uid="uid://bw6mltsbx3mny" path="res://PixelOperator8-Bold.ttf" id="2_44yiw"]
+[ext_resource type="FontFile" uid="uid://08j1ebqqxj8f" path="res://assests/fonts/Steam Punk Flyer.ttf" id="4_1nrx2"]
+[ext_resource type="LabelSettings" uid="uid://yf80o5qrirnk" path="res://scenes/hud/new_label_settings.tres" id="4_wfgtm"]
+[ext_resource type="AudioStream" uid="uid://cwp34isd233d4" path="res://assests/sounds/victory-96688.mp3" id="5_rwrhj"]
+[ext_resource type="Script" path="res://scripts/hud/exit.gd" id="6_sx0om"]
+[ext_resource type="AudioStream" uid="uid://beyf11r75ymf4" path="res://assests/sounds/mixkit-retro-arcade-casino-notification-211.mp3" id="7_8srh0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyxcw"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="EndingScene" type="Node2D"]
+script = ExtResource("1_h0dd0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -14,15 +24,38 @@ stretch_mode = 2
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
-offset_left = 204.0
-offset_top = 152.0
-offset_right = 345.0
-offset_bottom = 254.0
+offset_left = 202.0
+offset_top = 5.00002
+offset_right = 343.0
+offset_bottom = 161.0
 scale = Vector2(5.04565, 3.05657)
 theme_override_fonts/font = ExtResource("2_44yiw")
 theme_override_font_sizes/font_size = 8
 text = "Congratulations!
 You won the game!"
+label_settings = ExtResource("4_wfgtm")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="WinMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rwrhj")
+volume_db = -7.5
+parameters/looping = true
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 484.0
+offset_top = 476.0
+offset_right = 600.0
+offset_bottom = 517.0
+theme_override_fonts/font = ExtResource("4_1nrx2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gyxcw")
+text = "Exit
+"
+script = ExtResource("6_sx0om")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_8srh0")
+volume_db = 10.0
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
