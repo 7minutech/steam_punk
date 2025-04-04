@@ -42,3 +42,6 @@ ASSETS
   
   - Flying Enemy – Eye Creature  
 	Itch.io: https://nastanliev.itch.io/flying-eyes
+	
+- Controls
+	- https://adamgamer1111.itch.io/keyboard-and-controller-icons

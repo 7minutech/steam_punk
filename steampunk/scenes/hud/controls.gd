@@ -11,11 +11,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_start_button_pressed() -> void:
-	SceneSwitcher.switch_scene("res://scenes/hud/controls.tscn")
-	pass # Replace with function body.
-
-
-func _on_exit_button_pressed() -> void:
-	get_tree().quit()
+func _on_button_pressed() -> void:
+	SceneSwitcher.switch_scene("res://scenes/hud/character_select.tscn")
 	pass # Replace with function body.
