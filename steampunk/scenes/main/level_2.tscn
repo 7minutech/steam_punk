@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://5nda5jidrllv"]
+[gd_scene load_steps=8 format=3 uid="uid://5nda5jidrllv"]
 
 [ext_resource type="Texture2D" uid="uid://c1x8nbug8ygfr" path="res://assests/backgrounds/level_2.png" id="1_hxdyr"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_ujakn"]
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_b42g2"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_ouppg"]
 [ext_resource type="PackedScene" uid="uid://d0bmr8frh2dga" path="res://scenes/hud/hud.tscn" id="5_eid6c"]
+[ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="6_phb46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dw2q"]
 size = Vector2(1162, 20)
@@ -158,12 +159,15 @@ visible = false
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("5_eid6c")]
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(960, 203)
+position = Vector2(153, 493)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(571, 0)
 shape = SubResource("RectangleShape2D_6dw2q")
+
+[node name="crate" parent="." instance=ExtResource("6_phb46")]
+position = Vector2(273, 525)
 
 [connection signal="player_fell_off" from="." to="." method="_on_player_fell_off"]
