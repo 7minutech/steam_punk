@@ -1,0 +1,44 @@
+Game Development Resources & Credits
+
+TUTORIALS USED
+-------------------
+- Enemy Pathfinding Behavior  
+  YouTube: https://www.youtube.com/watch?v=tHrT4KoDZ_Y  
+
+- Gun Mechanics & Camera Shake  
+  YouTube: https://www.youtube.com/watch?v=sSfSX7XSxWM&t=323s  
+
+- Damage Flash Effect  
+  YouTube: https://www.youtube.com/watch?v=tNcJIUnsxr8  
+
+- HUD Setup  
+  YouTube: https://www.youtube.com/watch?v=k8zUXqoNcbA  
+
+- Health Bar UI  
+  YouTube: https://www.youtube.com/watch?v=UEJcUnq2dfU  
+
+- Platform Shaking Effect  
+  YouTube: https://www.youtube.com/watch?v=p6q8Nn2yd6I  
+
+AI ASSISTANCE
+-------------------
+Used ChatGPT for:  
+- Simple coding questions  
+- Naming characters and levels  
+- General formatting help  
+
+ASSETS
+-------------------
+- Gun Assets  
+  Itch.io: https://snoopethduckduck.itch.io/guns  
+  GitHub: https://github.com/daviesdevyt/godot-shooter-platformer-series  
+
+- Playable Characters  
+  - Human Player – Mechanic Mike  
+	Itch.io: https://gabry-corti.itch.io/mechanicmike  
+  
+  - Robot Destroyer Enemy  
+	CraftPix: https://craftpix.net/freebies/free-robot-pixel-art-sprite-sheets/?srsltid=AfmBOoou6yaoLa6omjf2k-Qg6y5e4jgNy4thydJ61J5BaJ7Icm5tupMt  
+  
+  - Flying Enemy – Eye Creature  
+	Itch.io: https://nastanliev.itch.io/flying-eyes
