@@ -58,7 +58,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_m2qtc")
-volume_db = 10.0
+volume_db = -5.0
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_d2r8y")

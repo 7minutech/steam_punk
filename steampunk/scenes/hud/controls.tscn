@@ -128,7 +128,7 @@ texture = ExtResource("10")
 
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_s4tf1")
-volume_db = 5.0
+volume_db = -5.0
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_x8r0n")
