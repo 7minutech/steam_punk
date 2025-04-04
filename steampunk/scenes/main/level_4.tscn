@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfit3yhwynhod"]
+[gd_scene load_steps=7 format=3 uid="uid://dfit3yhwynhod"]
 
 [ext_resource type="Texture2D" uid="uid://1c5o1uuy7b6l" path="res://assests/backgrounds/level_4.png" id="1_esbpe"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_h8jhb"]
 [ext_resource type="AudioStream" uid="uid://c4pkmx81v353b" path="res://assests/sounds/level_music/video-game-boss-fiight-259885.mp3" id="5_ncbc0"]
+[ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="6_t84ay"]
 [ext_resource type="PackedScene" uid="uid://bq2gbmm2jthkf" path="res://boss.tscn" id="7_3sile"]
 [ext_resource type="PackedScene" uid="uid://boua1tnc61p21" path="res://scenes/object/longerplatform.tscn" id="7_vyl82"]
 
@@ -49,3 +50,6 @@ position = Vector2(744, 430)
 stream = ExtResource("5_ncbc0")
 volume_db = 5.0
 parameters/looping = true
+
+[node name="crate" parent="." instance=ExtResource("6_t84ay")]
+position = Vector2(190, 478)
