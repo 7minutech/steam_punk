@@ -8,9 +8,10 @@ var gear_bullet = preload("res://scenes/enemy/GearBullet.tscn")
 var atk_cd = false
 @onready var sprite = $AnimatedSprite2D
 @export var health = 100
-
+signal player_has_spawned
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalBus.player_spawned.connect(_on_player_has_spawned)
 	player = Global.player
 	parent = get_parent()
 	$AnimatedSprite2D.play("fly")
@@ -71,6 +72,7 @@ func player_in_atk_range():
 	return false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(player)
 	if player != null:
 		var distance = player.position.x - position.x
 		print("Player x: " + str(player.position.x))
@@ -101,3 +103,8 @@ func hit():
 	print("hit")
 	health -= 25
 	hurt_flicker()
+
+
+func _on_player_has_spawned() -> void:
+	player = Global.player
+	pass # Replace with function body.

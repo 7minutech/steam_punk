@@ -104,6 +104,7 @@ wait_time = 3.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_6ccde")
 
+[connection signal="player_has_spawned" from="." to="." method="_on_player_has_spawned"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Atk_cd" to="." method="_on_atk_cd_timeout"]

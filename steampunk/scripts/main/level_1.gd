@@ -30,6 +30,7 @@ func set_player_choosen():
 		var player_instance = player_scene.instantiate()
 		add_child(player_instance)
 		player_instance.position = $SpawnPoint.position
+	SignalBus.player_spawned.emit()
 
 	
 	
