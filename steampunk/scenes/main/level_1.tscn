@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfnn2e6colnha"]
+[gd_scene load_steps=8 format=3 uid="uid://cfnn2e6colnha"]
 
 [ext_resource type="Texture2D" uid="uid://cvwruj6f6ke13" path="res://assests/backgrounds/level_1.png" id="1_16ts0"]
 [ext_resource type="Script" path="res://scripts/main/level_1.gd" id="1_ocmnv"]
 [ext_resource type="PackedScene" uid="uid://dkpqp68j5clhi" path="res://scenes/object/platform.tscn" id="2_62gxx"]
 [ext_resource type="PackedScene" uid="uid://15knvok220q0" path="res://scenes/object/dissapearing_platforms.tscn" id="3_byipa"]
 [ext_resource type="PackedScene" uid="uid://cb0nttk6ts6lq" path="res://scenes/enemy/FlyEnemy.tscn" id="6_rbiq4"]
+[ext_resource type="PackedScene" uid="uid://m8mum727x572" path="res://scenes/player/HumPlayer.tscn" id="7_1tdol"]
 [ext_resource type="PackedScene" uid="uid://cxkfga17uwjv5" path="res://crate.tscn" id="7_y5t4f"]
 
 [node name="Level_1" type="Node2D"]
@@ -56,5 +57,8 @@ collision_layer = 3
 
 [node name="crate" parent="." instance=ExtResource("7_y5t4f")]
 position = Vector2(166, 527)
+
+[node name="HumanPlayer" parent="." instance=ExtResource("7_1tdol")]
+position = Vector2(96, 481)
 
 [connection signal="player_fell_off" from="." to="." method="_on_player_fell_off"]
